@@ -1,0 +1,30 @@
+name: master
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  #--------------------------
+  # BUILD
+  #--------------------------
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: install
+        run: |
+          npm install -g @apidevtools/swagger-cli
+
+      - name: build
+        run: |
+          chmod +x build.sh
+          ./build.sh

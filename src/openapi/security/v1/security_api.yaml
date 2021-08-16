@@ -1,0 +1,38 @@
+openapi: "3.0.0"
+info:
+  title: "Wutsi Security Server"
+  description: |
+    Wutsi Security Server
+  version: "1.0.0"
+
+servers:
+  - url: https://wutsi-security-server-test.herokuapp.com
+    description: Sandbox
+  - url: https://wutsi-security-server-prod.herokuapp.com
+    description: Production
+
+paths:
+  /v1/public-key:
+    get:
+      operationId: "publicKey"
+      description: |
+        Return the server's public key.
+        This public key can be used
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicKeyResponse'
+      tags:
+        - Security
+
+
+components:
+  schemas:
+    PublicKeyResponse:
+      type: object
+      properties:
+        value:
+          type: string
