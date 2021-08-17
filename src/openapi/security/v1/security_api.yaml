@@ -110,6 +110,7 @@ components:
         description:
           type: string
           description: Description of the scope
+          nullable: true
         securityLevel:
           type: integer
           description: Security Level required to get this scope
