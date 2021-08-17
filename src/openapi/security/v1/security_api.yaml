@@ -171,6 +171,9 @@ components:
         name:
           type: string
           description: Name of the application
+        title:
+          type: string
+          description: Human friendly title of the application
         description:
           type: string
           description: Description of the application
@@ -178,6 +181,15 @@ components:
         securityLevel:
           type: integer
           description: Security Level of the application
+        iconUrl:
+          type: string
+          description: URL of the application icon
+        configUrl:
+          type: string
+          description: URL of the application configuration panel
+        homeUrl:
+          type: string
+          description: URL of the application home page
         scopeNames:
           type: array
           items:
