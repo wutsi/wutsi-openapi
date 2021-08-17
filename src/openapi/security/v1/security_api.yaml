@@ -199,7 +199,8 @@ components:
           description: Security Level of the application
         active:
           type: boolean
-          description: `true` if the scope is active
+          description: |
+            `true` if the scope is active
         scopes:
           type: array
           items:
@@ -224,4 +225,5 @@ components:
           description: Security Level required to get this scope
         active:
           type: boolean
-          description: `true` if the scope is active
+          description: |
+            `true` if the scope is active
