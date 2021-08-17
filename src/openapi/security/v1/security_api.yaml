@@ -86,10 +86,10 @@ paths:
         - Security
 
   /v1/applications/{id}:
-    post:
-      operationId: "create-application"
+    get:
+      operationId: "get-application"
       description: |
-        Create a new application
+        Find an application
       parameters:
         - in: path
           name: id
