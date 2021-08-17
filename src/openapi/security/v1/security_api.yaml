@@ -19,7 +19,8 @@ paths:
     get:
       operationId: "get-key"
       description: |
-        Return the server's key. This key can be used for decrypting message for verifying signatures
+        Return the server's key.
+        This key can be used either for decrypting messages or verifying signatures
       responses:
         200:
           description: Success
@@ -33,16 +34,28 @@ paths:
     post:
       operationId: "create-key"
       description: |
-        Create the server's key
+        Create the server's key.
       responses:
         201:
           description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateKeyResponse'
       tags:
         - Security
 
 
 components:
   schemas:
+    CreateKeyResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ID of the key created
+
     GetKeyResponse:
       type: object
       properties:
@@ -55,5 +68,7 @@ components:
       properties:
         algorithm:
           type: string
+          description: Name of the security algorithm
         content:
           type: string
+          description: Content of the key, based-64 encoded
