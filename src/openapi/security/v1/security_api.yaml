@@ -184,16 +184,22 @@ components:
         iconUrl:
           type: string
           description: URL of the application icon
+          nullable: true
         configUrl:
           type: string
           description: URL of the application configuration panel
+          nullable: true
         homeUrl:
           type: string
           description: URL of the application home page
+          nullable: true
         scopeNames:
           type: array
           items:
             type: string
+      required:
+        - name
+        - title
 
     CreateApplicationResponse:
       type: object
