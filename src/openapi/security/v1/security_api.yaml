@@ -249,6 +249,14 @@ components:
         active:
           type: boolean
           description: Is the application active or not?
+        created:
+          type: string
+          format: date-time
+          description: Application creation date
+        updated:
+          type: string
+          format: date-time
+          description: Application modification date
         scopes:
           type: array
           items:
