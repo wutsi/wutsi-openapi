@@ -246,6 +246,9 @@ components:
           type: string
           description: URL of the application home page
           nullable: true
+        active:
+          type: boolean
+          description: Is the application active or not?
         scopes:
           type: array
           items:
