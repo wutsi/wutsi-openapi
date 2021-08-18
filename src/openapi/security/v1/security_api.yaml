@@ -296,6 +296,10 @@ components:
         accessToken:
           type: string
           description: Access token
+        created:
+          type: string
+          format: date-time
+          description: Creation date/time
         expires:
           type: string
           format: date-time
