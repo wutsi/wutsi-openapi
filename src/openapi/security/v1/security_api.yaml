@@ -296,4 +296,8 @@ components:
         accessToken:
           type: string
           description: Access token
+        expires:
+          type: string
+          format: date-time
+          description: Expiry date/time
 
