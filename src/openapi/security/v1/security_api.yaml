@@ -214,6 +214,7 @@ components:
       type: object
       properties:
         application:
+          type: object
           $ref: "#/components/schemas/Application"
 
     Application:
