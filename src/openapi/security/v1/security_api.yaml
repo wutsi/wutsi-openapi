@@ -15,7 +15,7 @@ servers:
     description: Production
 
 paths:
-  /v1/keys:
+  /v1/keys/{id}:
     get:
       operationId: "get-key"
       description: |
@@ -23,6 +23,14 @@ paths:
         This key can be used for:
           - decrypting messages
           - verifying signatures
+      parameters:
+        - in: path
+          name: id
+          description: ID of the key
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         200:
           description: Success
