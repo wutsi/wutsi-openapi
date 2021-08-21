@@ -127,7 +127,7 @@ components:
     GetAccountResponse:
       type: object
       properties:
-        party:
+        account:
           type: object
           $ref: "#/components/schemas/Account"
 
