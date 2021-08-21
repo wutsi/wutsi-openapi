@@ -106,7 +106,7 @@ paths:
 
   /v1/accounts/{id}/password:
     post:
-      operationId: "set-password"
+      operationId: "save-password"
       description: Set the password of an account
       parameters:
         - in: path
@@ -121,7 +121,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SetPasswordRequest'
+              $ref: '#/components/schemas/SavePasswordRequest'
       responses:
         200:
           description: Success
@@ -129,7 +129,7 @@ paths:
         - Password
 
     get:
-      operationId: "validated-password"
+      operationId: "check-password"
       description: Validated the password of an account
       parameters:
         - in: path
@@ -185,7 +185,7 @@ components:
           description: Value of the
           nullable: true
 
-    SetPasswordRequest:
+    SavePasswordRequest:
       type: object
       properties:
         password:
@@ -193,6 +193,8 @@ components:
           description: Value of the
       required:
         - password
+
+
 
     Account:
       type: object
