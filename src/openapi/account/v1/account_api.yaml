@@ -150,14 +150,21 @@ components:
         phone:
           type: object
           $ref: "#/components/schemas/Phone"
-          description: Phone Number
+          description: |
+            Phone Number in the format E.164.
+            Exemple: +919638095998, +23799507890
         pictureUrl:
           type: string
           format: url
           description: URL of the account picture
+          nullable: true
         displayName:
           type: string
           description: Display Name
+          nullable: true
+        status:
+          type: string
+          description: Status of the account
         created:
           type: string
           format: date-time
@@ -180,6 +187,10 @@ components:
         country:
           type: string
           description: Country code
+        carrier:
+          type: string
+          description: Carrier
+          nullable: true
         created:
           type: string
           format: date-time
