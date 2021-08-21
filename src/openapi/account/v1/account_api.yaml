@@ -162,9 +162,6 @@ components:
           type: string
           description: Display Name
           nullable: true
-        status:
-          type: string
-          description: Status of the account
         created:
           type: string
           format: date-time
