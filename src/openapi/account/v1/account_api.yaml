@@ -29,6 +29,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreateAccountResponse'
+        409:
+          description: The phone number has already assigned to another account
       tags:
         - Account
 
@@ -51,6 +53,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetAccountResponse'
+        404:
+          description: The account not found
       tags:
         - Account
 
@@ -101,6 +105,8 @@ paths:
       responses:
         200:
           description: Success
+        404:
+          description: The account doesnt exist
       tags:
         - Account
 
@@ -125,6 +131,8 @@ paths:
       responses:
         200:
           description: Success
+        404:
+          description: The account doesnt exist
       tags:
         - Password
 
@@ -147,6 +155,10 @@ paths:
       responses:
         200:
           description: Success
+        404:
+          description: The account doesnt exist
+        409:
+          description: The password is not valid
       tags:
         - Password
 
@@ -190,10 +202,10 @@ components:
       properties:
         password:
           type: string
-          description: Value of the
+          description: Value of the password.
+          minLength: 6
       required:
         - password
-
 
 
     Account:
