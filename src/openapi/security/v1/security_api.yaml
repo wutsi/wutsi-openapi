@@ -4,7 +4,7 @@ info:
   description: |
     Wutsi Security Server. It provides the following features:
 
-    - [JWT](https://jwt.io) authentication
+    - [JWT](https://jwt.io) Authentication
     - Application registration
   version: "1.0.0"
 
@@ -54,7 +54,6 @@ paths:
                 $ref: '#/components/schemas/CreateKeyResponse'
       tags:
         - Security
-
 
   /v1/scopes:
     get:
