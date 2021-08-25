@@ -133,9 +133,9 @@ components:
           type: string
           description: |
             Phone number in the [E164](https://en.wikipedia.org/wiki/E.164) format
-        language:
+        locale:
           type: string
-          description: Language of the message to send to user
+          description: Locale of the message to send to user
       required:
         - number
 
