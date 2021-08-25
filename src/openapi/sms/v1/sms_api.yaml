@@ -14,8 +14,8 @@ servers:
     description: Production
 
 paths:
-  /v1/sms/messages/send:
-    get:
+  /v1/sms/messages:
+    post:
       operationId: "send-message"
       description: Sends a SMS Message
       requestBody:
@@ -36,9 +36,9 @@ paths:
       tags:
         - Message
       security:
-        - api_key: [ 'sms-send' ]
+        - api_key: [ 'sms-delivery' ]
 
-  /v1/sms/verifications/send:
+  /v1/sms/verifications:
     post:
       operationId: "send-verification"
       description: Send a verification message to a SMS number. Each verification sent expires in 5 minutes.
@@ -107,7 +107,7 @@ components:
     SendMessageRequest:
       type: object
       properties:
-        number:
+        phoneNumber:
           type: string
           description: |
             Phone number in the [E164](https://en.wikipedia.org/wiki/E.164) format
@@ -126,14 +126,16 @@ components:
           type: string
           description: Message unique identifier
 
-
     SendVerificationRequest:
       type: object
       properties:
-        number:
+        phoneNumber:
           type: string
           description: |
             Phone number in the [E164](https://en.wikipedia.org/wiki/E.164) format
+        language:
+          type: string
+          description: Language of the message to send to user
       required:
         - number
 
