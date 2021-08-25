@@ -136,6 +136,7 @@ components:
         locale:
           type: string
           description: Locale of the message to send to user
+          default: en
       required:
         - number
 
