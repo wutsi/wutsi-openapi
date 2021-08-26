@@ -137,6 +137,31 @@ paths:
       tags:
         - Security
 
+  /v1/applications/{id}/scopes:
+    post:
+      operationId: "grant-scopes"
+      description: |
+        Grant a scope to an application
+      parameters:
+        - in: path
+          name: id
+          description: ID of the application
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrantScopeRequest'
+      responses:
+        200:
+          description: Success
+      tags:
+        - Security
+
 
   /v1/login:
     post:
@@ -278,6 +303,17 @@ components:
           type: integer
           format: int64
           description: ID of the scope created
+
+    GrantScopeRequest:
+      type: object
+      properties:
+        scopeNames:
+          type: array
+          items:
+            type: string
+      required:
+        - scopeNames
+
 
     Application:
       type: object
