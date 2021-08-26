@@ -15,6 +15,21 @@ servers:
     description: Production
 
 paths:
+  /v1/keys:
+    post:
+      operationId: "create-key"
+      description: |
+        Create the server's key.
+      responses:
+        201:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateKeyResponse'
+      tags:
+        - Security
+
   /v1/keys/{id}:
     get:
       operationId: "get-key"
@@ -41,19 +56,6 @@ paths:
       tags:
         - Security
 
-    post:
-      operationId: "create-key"
-      description: |
-        Create the server's key.
-      responses:
-        201:
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CreateKeyResponse'
-      tags:
-        - Security
 
   /v1/scopes:
     get:
@@ -134,6 +136,7 @@ paths:
                 $ref: '#/components/schemas/GetApplicationResponse'
       tags:
         - Security
+
 
   /v1/login:
     post:
