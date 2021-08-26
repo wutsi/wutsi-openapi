@@ -251,6 +251,9 @@ components:
           type: integer
           format: int64
           description: ID of the application
+        apiKey:
+          type: string
+          description: Application API key
         name:
           type: string
           description: Name of the application
