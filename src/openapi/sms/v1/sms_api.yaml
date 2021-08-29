@@ -36,7 +36,7 @@ paths:
       tags:
         - Message
       security:
-        - api_key: [ 'sms-delivery' ]
+        - api_key: [ 'sms-send' ]
 
   /v1/sms/verifications:
     post:
@@ -60,7 +60,7 @@ paths:
       tags:
         - Verification
       security:
-        - api_key: [ 'sms-verification' ]
+        - api_key: [ 'sms-verify' ]
 
   /v1/sms/verifications/{id}:
     get:
@@ -93,7 +93,7 @@ paths:
       tags:
         - Verification
       security:
-        - api_key: [ 'sms-verification' ]
+        - api_key: [ 'sms-verify' ]
 
 
 components:
