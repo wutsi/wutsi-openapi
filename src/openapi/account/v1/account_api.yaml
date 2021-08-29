@@ -42,7 +42,6 @@ paths:
           name: phone-number
           description: |
             Phone number in the [E164](https://en.wikipedia.org/wiki/E.164) format
-          required: true
           schema:
             type: string
         - in: query
@@ -256,7 +255,7 @@ components:
         id:
           type: integer
           format: int64
-          description: ID
+          description: Unique identifier of the account
         phone:
           type: object
           $ref: "#/components/schemas/Phone"
@@ -268,6 +267,12 @@ components:
           format: url
           description: URL of the account picture
           nullable: true
+        status:
+          type: string
+          description: Status of the account
+          enum:
+            - active
+            - suspended
         displayName:
           type: string
           description: Display Name

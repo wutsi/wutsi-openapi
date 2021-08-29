@@ -286,8 +286,9 @@ components:
           type: integer
           format: int64
           description: ID of the login session
-        type:
+        created:
           type: string
+          format: date-time
         expires:
           type: string
           format: date-time
