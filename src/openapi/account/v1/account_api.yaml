@@ -150,7 +150,7 @@ paths:
       tags:
         - Account
       security:
-        - api_key: [ 'user-read' ]
+        - api_key: [ 'user-manage' ]
 
   /v1/accounts/{id}/password:
     post:
