@@ -309,6 +309,12 @@ components:
           type: string
           format: date-time
           description: Last modification Date/Time
+        superUser:
+          type: boolean
+          default: false
+          description: |
+            `true` if this is the account of super-user.
+            Super User have full right accross the whole platform
 
     Account:
       type: object
