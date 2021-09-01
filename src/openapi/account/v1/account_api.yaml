@@ -514,8 +514,9 @@ components:
       type: object
       properties:
         paymentMethods:
-          type: object
-          $ref: "#/components/schemas/PaymentMethod"
+          type: list
+          items:
+            $ref: "#/components/schemas/PaymentMethod"
 
     AccountSummary:
       type: object
@@ -643,10 +644,12 @@ components:
           $ref: "#/components/schemas/Phone"
           description: Phone Number (for mobile payment)
           nullable: true
-        valid:
-          type: boolean
-          description: Is the card verified
-          default: false
+        status:
+          type: string
+          description: Status of the payment method
+          enum:
+            - created
+            - verified
         created:
           type: string
           format: date-time
