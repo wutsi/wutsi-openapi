@@ -515,9 +515,7 @@ components:
       properties:
         paymentMethods:
           type: object
-          properties:
-            paymentMethod:
-              $ref: "#/components/schemas/PaymentMethod"
+          $ref: "#/components/schemas/PaymentMethod"
 
     AccountSummary:
       type: object
