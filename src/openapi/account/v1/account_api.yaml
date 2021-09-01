@@ -552,7 +552,7 @@ components:
           type: string
           format: date-time
           description: Last modification Date/Time
-        isSuperUser:
+        superUser:
           type: boolean
           default: false
           description: |
@@ -600,7 +600,7 @@ components:
           type: string
           format: date-time
           description: Last modification Date/Time
-        isSuperUser:
+        superUser:
           type: boolean
           default: false
           description: |
@@ -645,7 +645,7 @@ components:
           $ref: "#/components/schemas/Phone"
           description: Phone Number (for mobile payment)
           nullable: true
-        isVerified:
+        valid:
           type: boolean
           description: Is the card verified
           default: false
