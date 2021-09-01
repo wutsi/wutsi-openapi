@@ -313,8 +313,7 @@ components:
           type: boolean
           default: false
           description: |
-            `true` if this is the account of super-user.
-            Super User have full right accross the whole platform
+            `true` if this is the account of super-user
 
     Account:
       type: object
@@ -326,7 +325,8 @@ components:
         phone:
           type: object
           $ref: "#/components/schemas/Phone"
-          description: Phone Number in E.164 format.
+          description: Phone Number
+          nullable: true
         pictureUrl:
           type: string
           format: url
@@ -358,7 +358,6 @@ components:
           default: false
           description: |
             `true` if this is the account of super-user.
-            Super User have full right accross the whole platform
 
     Phone:
       type: object
