@@ -648,12 +648,6 @@ components:
           $ref: "#/components/schemas/Phone"
           description: Phone Number (for mobile payment)
           nullable: true
-        status:
-          type: string
-          description: Status of the payment method
-          enum:
-            - created
-            - verified
         created:
           type: string
           format: date-time
@@ -662,11 +656,6 @@ components:
           type: string
           format: date-time
           description: Updated date/time
-        verified:
-          type: string
-          format: date-time
-          description: Verification date/time
-          nullable: true
 
     PaymentMethodSummary:
       type: object
@@ -687,12 +676,6 @@ components:
         maskedNumber:
           type: string
           description: Masked number of this payment method
-        status:
-          type: string
-          description: Status of the payment method
-          enum:
-            - created
-            - verified
         created:
           type: string
           format: date-time
@@ -701,8 +684,3 @@ components:
           type: string
           format: date-time
           description: Updated date/time
-        verified:
-          type: string
-          format: date-time
-          description: Verification date/time
-          nullable: true
