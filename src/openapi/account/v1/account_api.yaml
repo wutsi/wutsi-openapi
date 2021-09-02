@@ -452,6 +452,9 @@ components:
     AddPaymentMethodRequest:
       type: object
       properties:
+        ownerName:
+          type: string
+          description: Name of the owner of the payment method
         phoneNumber:
           type: string
           description: |
@@ -470,6 +473,7 @@ components:
             - orange
             - express-union
       required:
+        - ownerName
         - type
         - provider
 
@@ -484,6 +488,9 @@ components:
     UpdatePaymentMethodRequest:
       type: object
       properties:
+        ownerName:
+          type: string
+          description: Name of the owner of the payment method
         provider:
           type: string
           description: Payment provider
@@ -492,6 +499,7 @@ components:
             - orange
             - express-union
       required:
+        - ownerName
         - provider
 
     GetPaymentMethodResponse:
@@ -627,6 +635,9 @@ components:
         provider:
           type: string
           description: Payment provider
+        ownerName:
+          type: string
+          description: Name of the owner of the payment method
         title:
           type: string
           description: Short title of the payment method
@@ -668,6 +679,9 @@ components:
         provider:
           type: string
           description: Payment provider
+        ownerName:
+          type: string
+          description: Name of the owner of the payment method
         title:
           type: string
           description: Short title of the payment method
