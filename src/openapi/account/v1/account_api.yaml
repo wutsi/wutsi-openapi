@@ -452,16 +452,16 @@ components:
     AddPaymentMethodRequest:
       type: object
       properties:
-        phoneId:
+        phoneNumber:
           type: string
           description: |
             Phone number in the [E164](https://en.wikipedia.org/wiki/E.164) format
+          nullable: true
         type:
           type: string
           description: Type of payment method
           enum:
             - mobile
-            - credit-card
         provider:
           type: string
           description: Payment provider
@@ -470,8 +470,8 @@ components:
             - orange
             - express-union
       required:
-        - accountId
         - type
+        - provider
 
     AddPaymentMethodResponse:
       type: object
@@ -484,15 +484,6 @@ components:
     UpdatePaymentMethodRequest:
       type: object
       properties:
-        phoneId:
-          type: string
-          description: |
-            Phone number in the [E164](https://en.wikipedia.org/wiki/E.164) format
-        type:
-          type: string
-          description: Type of payment method
-          enum:
-            - mobile
         provider:
           type: string
           description: Payment provider
@@ -501,7 +492,7 @@ components:
             - orange
             - express-union
       required:
-        - type
+        - provider
 
     GetPaymentMethodResponse:
       type: object
@@ -516,7 +507,7 @@ components:
         paymentMethods:
           type: list
           items:
-            $ref: "#/components/schemas/PaymentMethod"
+            $ref: "#/components/schemas/PaymentMethodSummary"
 
     AccountSummary:
       type: object
@@ -636,9 +627,9 @@ components:
         provider:
           type: string
           description: Payment provider
-        number:
+        title:
           type: string
-          description: Phone number
+          description: Short title of the payment method
         phone:
           type: object
           $ref: "#/components/schemas/Phone"
@@ -654,7 +645,48 @@ components:
           type: string
           format: date-time
           description: Creation date/time
+        updated:
+          type: string
+          format: date-time
+          description: Updated date/time
         verified:
           type: string
           format: date-time
           description: Verification date/time
+          nullable: true
+
+    PaymentMethodSummary:
+      type: object
+      properties:
+        token:
+          type: string
+          format: uuid
+          description: Payment Method's token
+        type:
+          type: string
+          description: Type of payment method
+        provider:
+          type: string
+          description: Payment provider
+        title:
+          type: string
+          description: Short title of the payment method
+        status:
+          type: string
+          description: Status of the payment method
+          enum:
+            - created
+            - verified
+        created:
+          type: string
+          format: date-time
+          description: Creation date/time
+        updated:
+          type: string
+          format: date-time
+          description: Updated date/time
+        verified:
+          type: string
+          format: date-time
+          description: Verification date/time
+          nullable: true
