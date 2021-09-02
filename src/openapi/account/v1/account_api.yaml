@@ -455,6 +455,7 @@ components:
         ownerName:
           type: string
           description: Name of the owner of the payment method
+          maxLength: 100
         phoneNumber:
           type: string
           description: |
@@ -491,6 +492,7 @@ components:
         ownerName:
           type: string
           description: Name of the owner of the payment method
+          maxLength: 100
         provider:
           type: string
           description: Payment provider
@@ -638,9 +640,9 @@ components:
         ownerName:
           type: string
           description: Name of the owner of the payment method
-        title:
+        maskedNumber:
           type: string
-          description: Short title of the payment method
+          description: Masked number of this payment method
         phone:
           type: object
           $ref: "#/components/schemas/Phone"
@@ -682,9 +684,9 @@ components:
         ownerName:
           type: string
           description: Name of the owner of the payment method
-        title:
+        maskedNumber:
           type: string
-          description: Short title of the payment method
+          description: Masked number of this payment method
         status:
           type: string
           description: Status of the payment method
