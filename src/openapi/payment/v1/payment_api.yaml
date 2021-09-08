@@ -101,10 +101,10 @@ components:
           type: string
           description: 3 letter currency code
           maxLength: 3
-        required:
-          - paymentMethodToken
-          - description
-          - currency
+      required:
+        - paymentMethodToken
+        - description
+        - currency
 
     CreateChargeResponse:
       type: object
