@@ -86,20 +86,25 @@ components:
           type: string
           format: uuid
           description: Payment method used by customer to get charged
-        offerToken:
+        externalId:
           type: string
-          description: Token representing the offer for which the customer is charged
+          description: ID of the product purchased
         description:
           type: string
-          description: Description of the offer
+          description: Description of the transaction
         amount:
           type: number
           format: float
           description: Amout to charge to the customer
+          minimum: 0
         currency:
           type: string
           description: 3 letter currency code
           maxLength: 3
+        required:
+          - paymentMethodToken
+          - description
+          - currency
 
     CreateChargeResponse:
       type: object
@@ -139,12 +144,12 @@ components:
           type: string
           format: uuid
           description: Payment method used by customer to get charged
-        offerToken:
+        externalId:
           type: string
-          description: Token representing the offer for which the customer is charged
+          description: ID of the product purchased
         description:
           type: string
-          description: Description of the offer
+          description: Description of the transaction
         amount:
           type: number
           format: float
