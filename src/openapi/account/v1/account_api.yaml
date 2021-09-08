@@ -515,7 +515,7 @@ components:
       type: object
       properties:
         paymentMethods:
-          type: list
+          type: array
           items:
             $ref: "#/components/schemas/PaymentMethodSummary"
 
