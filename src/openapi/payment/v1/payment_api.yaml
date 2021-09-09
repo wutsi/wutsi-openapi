@@ -94,7 +94,7 @@ components:
           description: Description of the transaction
         amount:
           type: number
-          format: float
+          format: double
           description: Amout to charge to the customer
           minimum: 0
         currency:
@@ -152,15 +152,15 @@ components:
           description: Description of the transaction
         amount:
           type: number
-          format: float
+          format: double
           description: Amout to charge to the customer
         fees:
           type: number
-          format: float
+          format: double
           description: Fees associated with the transaction
         net:
           type: number
-          format: float
+          format: double
           description: Net amount
         transactionId:
           type: string
