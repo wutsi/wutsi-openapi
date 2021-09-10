@@ -23,7 +23,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateAccountRequest'
       responses:
-        201:
+        200:
           description: Success
           content:
             application/json:
