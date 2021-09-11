@@ -581,8 +581,8 @@ components:
           type: string
           description: Status of the account
           enum:
-            - active
-            - suspended
+            - ACTIVE
+            - SUSPENDED
         displayName:
           type: string
           description: Display Name
