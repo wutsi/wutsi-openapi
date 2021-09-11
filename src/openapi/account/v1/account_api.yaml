@@ -302,7 +302,6 @@ paths:
           required: true
           schema:
             type: string
-            format: uuid
       responses:
         200:
           description: Success
@@ -465,7 +464,7 @@ components:
           type: string
           description: Type of payment method
           enum:
-            - mobile
+            - mobile-payment
         provider:
           type: string
           description: Payment provider
@@ -629,7 +628,6 @@ components:
       properties:
         token:
           type: string
-          format: uuid
           description: Payment Method's token
         type:
           type: string
@@ -662,7 +660,6 @@ components:
       properties:
         token:
           type: string
-          format: uuid
           description: Payment Method's token
         type:
           type: string

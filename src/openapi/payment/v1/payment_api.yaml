@@ -84,7 +84,6 @@ components:
           description: ID of the application associated with this transaction
         paymentMethodToken:
           type: string
-          format: uuid
           description: Payment method used by customer to get charged
         externalId:
           type: string
