@@ -183,14 +183,13 @@ components:
           type: string
           description: Type of payment method
           enum:
-            - mobile-payment
+            - MOBILE_PAYMENT
         paymentMethodProvider:
           type: string
           description: Payment provider
           enum:
-            - mtn
-            - orange
-            - express-union
+            - MTN
+            - ORANGE
         created:
           type: string
           format: date-time
