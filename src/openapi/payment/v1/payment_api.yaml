@@ -179,6 +179,18 @@ components:
           type: string
           description: Error Details
           nullable: true
+        paymentMethodType:
+          type: string
+          description: Type of payment method
+          enum:
+            - mobile-payment
+        paymentMethodProvider:
+          type: string
+          description: Payment provider
+          enum:
+            - mtn
+            - orange
+            - express-union
         created:
           type: string
           format: date-time
