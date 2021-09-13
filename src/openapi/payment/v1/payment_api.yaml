@@ -164,6 +164,10 @@ components:
         gatewayTransactionId:
           type: string
           description: Transaction ID
+        financialTransactionId:
+          type: string
+          description: Financial Transaction ID
+          nullable: true
         currency:
           type: string
           description: 3 letter currency code
@@ -193,4 +197,8 @@ components:
         created:
           type: string
           format: date-time
-          description: Date/Time of the transaction
+          description: Creation Date/Time
+        updated:
+          type: string
+          format: date-time
+          description: Last modification Date/Time
