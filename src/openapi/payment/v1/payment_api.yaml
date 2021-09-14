@@ -63,7 +63,7 @@ paths:
       operationId: "get-balance"
       description: Return the balance of a merchant
       parameters:
-        - in: path
+        - in: query
           name: merchant-id
           description: ID of the merchant
           required: true
