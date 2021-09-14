@@ -58,6 +58,29 @@ paths:
       security:
         - api_key: [ 'payment-charge' ]
 
+  /v1/balance:
+    get:
+      operationId: "get-balance"
+      description: Return the balance of a merchant
+      parameters:
+        - in: path
+          name: accountId
+          description: ID of the account
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBalanceResponse'
+      tags:
+        - Payment
+      security:
+        - api_key: [ 'payment-read' ]
 
 components:
   securitySchemes:
@@ -122,6 +145,13 @@ components:
         charge:
           type: object
           $ref: "#/components/schemas/Charge"
+
+    GetBalanceResponse:
+      type: object
+      properties:
+        balance:
+          type: object
+          $ref: "#/components/schemas/Balance"
 
     Charge:
       type: object
@@ -202,3 +232,19 @@ components:
           type: string
           format: date-time
           description: Last modification Date/Time
+
+    Balance:
+      type: object
+      properties:
+        accountId:
+          type: integer
+          format: int64
+          description: ID of merchant
+        amount:
+          type: number
+          format: double
+          description: Amout to charge to the customer
+        currency:
+          type: string
+          description: 3 letter currency code
+          maxLength: 3
