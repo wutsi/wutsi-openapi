@@ -58,14 +58,14 @@ paths:
       security:
         - api_key: [ 'payment-charge' ]
 
-  /v1/balance:
+  /v1/balances:
     get:
       operationId: "get-balance"
       description: Return the balance of a merchant
       parameters:
         - in: path
-          name: accountId
-          description: ID of the account
+          name: merchant-id
+          description: ID of the merchant
           required: true
           schema:
             type: integer
@@ -236,7 +236,7 @@ components:
     Balance:
       type: object
       properties:
-        accountId:
+        merchantId:
           type: integer
           format: int64
           description: ID of merchant
