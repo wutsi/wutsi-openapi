@@ -60,7 +60,7 @@ paths:
 
   /v1/balances:
     get:
-      operationId: "get-balances"
+      operationId: "get-balance"
       description: Return the balance of an account
       parameters:
         - in: query
