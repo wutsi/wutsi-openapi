@@ -58,28 +58,6 @@ paths:
       security:
         - api_key: [ 'payment-charge' ]
 
-  /v1/payouts:
-    post:
-      operationId: "create-payout"
-      description: Payout a merchant
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreatePayoutRequest'
-      responses:
-        200:
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CreatePayoutResponse'
-      tags:
-        - Payment
-      security:
-        - api_key: [ 'payment-payout' ]
-
   /v1/payouts/{id}:
     get:
       operationId: "get-payout"
@@ -209,38 +187,6 @@ components:
         balance:
           type: object
           $ref: "#/components/schemas/Balance"
-
-
-    CreatePayoutRequest:
-      type: object
-      properties:
-        accountId:
-          type: integer
-          format: int64
-          description: Account ID of that request the payout
-        paymentMethodProvider:
-          type: string
-          description: Payment provider
-          enum:
-            - MTN
-            - ORANGE
-        description:
-          type: string
-          description: Description of the transaction
-      required:
-        - paymentMethodToken
-        - description
-
-    CreatePayoutResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          description: ID of the payout
-        status:
-          type: string
-          description: Status of the payout
 
 
     GetPayoutResponse:
