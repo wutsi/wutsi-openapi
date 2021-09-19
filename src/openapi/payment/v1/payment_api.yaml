@@ -248,6 +248,10 @@ components:
         status:
           type: string
           description: Transaction status
+          enum:
+            - PENDING
+            - SUCESSFUL
+            - FAILED
         errorCode:
           type: string
           description: Error code
@@ -342,6 +346,10 @@ components:
           type: string
           description: Error code
           nullable: true
+          enum:
+            - PENDING
+            - SUCESSFUL
+            - FAILED
         supplierErrorCode:
           type: string
           description: Error Details
