@@ -95,7 +95,7 @@ paths:
 
   /v1/applications:
     get:
-      operationId: "search-application"
+      operationId: "search-applications"
       description: Search applications
       parameters:
         - in: query
