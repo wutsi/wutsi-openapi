@@ -238,8 +238,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListPaymentMethodResponse'
-        403:
-          description: The caller is not the owner of the account
         404:
           description: The account doesnt exist
         409:
@@ -309,8 +307,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetPaymentMethodResponse'
-        403:
-          description: The caller is not the owner of the account
         404:
           description: Payment method doesn't exist
       tags:
