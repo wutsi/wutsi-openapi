@@ -601,6 +601,9 @@ components:
         language:
           type: string
           description: Account's language
+        country:
+          type: string
+          description: Account's country
         created:
           type: string
           format: date-time
