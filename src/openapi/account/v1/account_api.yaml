@@ -400,6 +400,18 @@ components:
             2 letter code of the account's language ([ISO 659-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)).
           default: en
           maxLength: 2
+        country:
+          type: string
+          description: |
+            2 letter code of the account's conntry ([ISO_3166-2](https://en.wikipedia.org/wiki/ISO_3166-2)).
+          default: US
+          maxLength: 2
+        displayName:
+          type: string
+          description: Account's display name
+        pictureUrl:
+          type: string
+          description: Account's picture
       required:
         - phoneNumber
 
@@ -538,6 +550,9 @@ components:
         language:
           type: string
           description: Account's language
+        country:
+          type: string
+          description: Account's country
         created:
           type: string
           format: date-time
