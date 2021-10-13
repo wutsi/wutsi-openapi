@@ -20,9 +20,9 @@ paths:
         - in: query
           name: country
           description: Target country
+          required: true
           schema:
             type: string
-            required: true
         - in: query
           name: paymentType
           description: Type of mayments
@@ -52,6 +52,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SearchProviderResponse'
+
 
   /v1/charges:
     post:
@@ -467,7 +468,7 @@ components:
       type: object
       properties:
         id:
-          type: integrer
+          type: integer
           format: int64
           description: ID of the transaction
         code:
@@ -479,3 +480,7 @@ components:
         paymentType:
           type: string
           description: Provider Name
+        active:
+          type: boolean
+          default: true
+          description: Is the provider active
