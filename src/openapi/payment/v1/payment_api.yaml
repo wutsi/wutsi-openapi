@@ -22,6 +22,7 @@ paths:
           description: Target country
           schema:
             type: string
+            required: true
         - in: query
           name: paymentType
           description: Type of mayments
