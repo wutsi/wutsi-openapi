@@ -5,11 +5,11 @@ info:
     API for managing user's accounts
   version: "1.0.0"
 
-  servers:
-    - url: https://wutsi-account-server-test.herokuapp.com
-      description: Sandbox
-    - url: https://wutsi-account-server-prod.herokuapp.com
-      description: Production
+servers:
+  - url: https://wutsi-account-server-test.herokuapp.com
+    description: Sandbox
+  - url: https://wutsi-account-server-prod.herokuapp.com
+    description: Production
 
 paths:
   /v1/accounts:
