@@ -313,13 +313,17 @@ components:
           type: string
           description: Type of payment method
           enum:
-            - MOBILE_PAYMENT
+            - MOBILE
+            - CREDIT_CARD
+            - BANK
+            - CASH
         paymentMethodProvider:
           type: string
           description: Payment provider
           enum:
             - MTN
             - ORANGE
+            - NEXTTEL
         created:
           type: string
           format: date-time

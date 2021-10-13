@@ -5,7 +5,7 @@ info:
     API for managing user's accounts
   version: "1.0.0"
 
-servers:
+  servers:M
   - url: https://wutsi-account-server-test.herokuapp.com
     description: Sandbox
   - url: https://wutsi-account-server-prod.herokuapp.com
@@ -474,13 +474,17 @@ components:
           type: string
           description: Type of payment method
           enum:
-            - MOBILE_PAYMENT
+            - MOBILE
+            - CREDIT_CARD
+            - BANK
+            - CASH
         provider:
           type: string
           description: Payment provider
           enum:
             - MTN
             - ORANGE
+            - NEXTTEL
       required:
         - ownerName
         - type
