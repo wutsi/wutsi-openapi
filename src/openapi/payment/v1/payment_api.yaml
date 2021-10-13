@@ -213,9 +213,6 @@ components:
         paymentMethodProvider:
           description: Payment Provider
           type: string
-          enum:
-            - MTN
-            - ORANGE
       required:
         - paymentMethodToken
 
@@ -236,14 +233,6 @@ components:
         payout:
           type: object
           $ref: "#/components/schemas/Payout"
-
-    SearchProviderResponse:
-      type: object
-      properties:
-        providers:
-          type: array
-          items:
-            $ref: "#/components/schemas/Provider"
 
 
     Charge:
@@ -346,6 +335,7 @@ components:
           enum:
             - MTN
             - ORANGE
+            - NEXTTEL
         amount:
           type: number
           format: double
@@ -417,6 +407,7 @@ components:
           enum:
             - MTN
             - ORANGE
+            - NEXTTEL
         created:
           type: string
           format: date-time
