@@ -12,7 +12,7 @@ servers:
     description: Production
 
 paths:
-  /v1/tenant/{id}:
+  /v1/tenants/{id}:
     get:
       operationId: "get-tenant"
       description: |
