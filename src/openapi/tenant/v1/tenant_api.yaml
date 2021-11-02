@@ -74,6 +74,9 @@ components:
         domainName:
           type: string
           description: Tenant domain name
+        currency:
+          type: string
+          description: Currency of this tenant
         countries:
           type: array
           description: List of countries supported by this tenant.
