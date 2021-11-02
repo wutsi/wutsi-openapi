@@ -34,8 +34,16 @@ paths:
                 $ref: '#/components/schemas/GetTenantResponse'
       tags:
         - Tenant
+      security:
+        - api_key: [ 'tenant-read' ]
 
 components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: Authorization
+
   schemas:
     Logo:
       type: object
