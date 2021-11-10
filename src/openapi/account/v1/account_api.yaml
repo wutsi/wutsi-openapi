@@ -30,7 +30,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreateAccountResponse'
         409:
-          description: The phone number has already assigned to another account
+          description: |
+            Account creation failed.
+            The possible error codes:
+            - `urn:error:wutsi:account:phone-number-already-assigned`: The phone number already assigned to another user
+            - `urn:error:wutsi:account:phone-number-malformed`: The phone number format is not confirm to [E164](https://en.wikipedia.org/wiki/E.164) format.
       tags:
         - Account
       security:
@@ -151,7 +155,7 @@ paths:
         403:
           description: The caller is not the owner of the account
         404:
-          description: The account doesnt exist
+          description: The account not found
       tags:
         - Account
       security:
@@ -181,7 +185,7 @@ paths:
         403:
           description: The caller is not the owner of the account
         404:
-          description: The account doesnt exist
+          description: The account not found
       tags:
         - Password
       security:
@@ -276,7 +280,10 @@ paths:
         404:
           description: The account doesnt exist
         409:
-          description: The payment method is already assiged to another account
+          description: |
+            The operation failed.
+            The possible error codes:
+            - `urn:error:wutsi:account:payment-method-ownership`: The payment method already assigned to another user
       tags:
         - Payment Methods
       security:
