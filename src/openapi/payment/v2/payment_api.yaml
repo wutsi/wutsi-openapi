@@ -139,4 +139,4 @@ components:
       properties:
         account:
           type: object
-          $ref: "#components/schemas/Account"
+          $ref: "#/components/schemas/Account"
