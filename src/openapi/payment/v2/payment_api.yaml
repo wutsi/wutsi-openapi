@@ -16,7 +16,7 @@ servers:
     description: Production
 
 paths:
-  /v1/cashins:
+  /v1/transactions/cashins:
     post:
       operationId: "create-cashin"
       description: Cash-in money
@@ -109,8 +109,6 @@ components:
             - PENDING
             - SUCESS
 
-
-
     Account:
       type: object
       properties:
@@ -118,6 +116,14 @@ components:
           type: integer
           format: int64
           description: ID of the account
+        ownerId:
+          type: integer
+          format: int64
+          description: ID of the owner
+          nullable: true
+        name:
+          type: string
+          description: Name of the owner
         balance:
           type: number
           format: double
@@ -130,7 +136,7 @@ components:
           type: string
           enum:
             - USER
-            - PAYMENT_GATEWAY
+            - GATEWAY
             - FEES
           description: Type of account
 
