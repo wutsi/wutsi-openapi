@@ -37,7 +37,7 @@ paths:
           description: The current user is not owner of the payment method
         409:
           description: |
-            The cashing failed
+            The cash-in failed
       tags:
         - Payment
       security:
