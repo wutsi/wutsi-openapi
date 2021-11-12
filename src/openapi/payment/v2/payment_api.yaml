@@ -129,7 +129,6 @@ components:
         currency:
           type: string
           description: 3 letter currency code
-          maxLength: 3
         created:
           type: string
           description: Creation data-time
