@@ -121,6 +121,7 @@ components:
         name:
           type: string
           description: Name of the owner
+          nullable: true
         balance:
           type: number
           format: double
