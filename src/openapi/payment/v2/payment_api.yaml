@@ -145,6 +145,10 @@ components:
           type: string
           description: 3 letter currency code
           maxLength: 3
+        description:
+          type: string
+          description: Description of the transfer
+          nullable: true
       required:
         - currency
 
