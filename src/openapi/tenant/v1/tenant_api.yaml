@@ -99,6 +99,20 @@ components:
           items:
             $ref: "#/components/schemas/PhonePrefix"
 
+    Limits:
+      type: object
+      properties:
+        country:
+          type: string
+          description: Code of the country
+        minCashin:
+          type: numeric
+          format: double
+          description: Minimum amount to cashin
+        minCashout:
+          type: numeric
+          format: double
+          description: Minimum amount to cashout
 
     Tenant:
       type: object
@@ -122,6 +136,11 @@ components:
         monetaryFormat:
           type: string
           description: Format to apply to monetary values
+        limits:
+          type: array
+          description: Information about limits of users
+          items:
+            $ref: "#/components/schemas/Limits"
         countries:
           type: array
           description: List of countries supported by this tenant.
