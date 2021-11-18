@@ -106,11 +106,11 @@ components:
           type: string
           description: Code of the country
         minCashin:
-          type: numeric
+          type: number
           format: double
           description: Minimum amount to cashin
         minCashout:
-          type: numeric
+          type: number
           format: double
           description: Minimum amount to cashout
 
