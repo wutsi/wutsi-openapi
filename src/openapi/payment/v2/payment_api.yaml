@@ -252,7 +252,7 @@ components:
           description: Payment Gateway provider
           nullable: true
         description:
-          type: stirng
+          type: string
           description: Description of the transaction
           nullable: true
         amount:
