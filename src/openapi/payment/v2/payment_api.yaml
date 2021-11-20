@@ -285,6 +285,12 @@ components:
           type: string
           description: Error code from payment supplier
           nullable: true
+        fromAccount:
+          type: object
+          $ref: "#/components/schemas/Account"
+        toAccount:
+          type: object
+          $ref: "#/components/schemas/Account"
         created:
           type: string
           format: date-time
