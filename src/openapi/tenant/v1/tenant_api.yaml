@@ -102,9 +102,6 @@ components:
     Limits:
       type: object
       properties:
-        country:
-          type: string
-          description: Code of the country
         minCashin:
           type: number
           format: double
@@ -137,10 +134,9 @@ components:
           type: string
           description: Format to apply to monetary values
         limits:
-          type: array
+          type: object
           description: Information about limits of users
-          items:
-            $ref: "#/components/schemas/Limits"
+          $ref: "#/components/schemas/Limits"
         countries:
           type: array
           description: List of countries supported by this tenant.
