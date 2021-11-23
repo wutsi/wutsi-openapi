@@ -64,10 +64,10 @@ paths:
       security:
         - api_key: [ 'payment-manage' ]
 
-  /v1/users/{user-id}/account:
+  /v1/accounts/{user-id}/balance:
     get:
-      operationId: "get-user-account"
-      description: Find account of a user
+      operationId: "get-balance"
+      description: Get balance of a user
       parameters:
         - in: path
           name: user-id
@@ -82,7 +82,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetAccountResponse'
+                $ref: '#/components/schemas/GetBalanceResponse'
       tags:
         - Account
       security:
@@ -167,24 +167,22 @@ components:
             - SUCESS
 
 
-    Account:
+    Balance:
       type: object
       properties:
         id:
           type: integer
           format: int64
           description: ID of the account
-        type:
-          type: string
-          description: Type of account
-          enum:
-            - REVENU
-            - LIABILITY
-        name:
-          type: string
-          description: Name of the owner
-          nullable: true
-        balance:
+        userId:
+          type: integer
+          format: int64
+          description: ID of the user who owns this balance
+        tenantId:
+          type: integer
+          format: int64
+          description: ID of the tenant
+        amount:
           type: number
           format: double
           description: Balance of the account
@@ -195,10 +193,14 @@ components:
           type: string
           description: Creation data-time
           format: date-time
+        updated:
+          type: string
+          description: Date/Time of the last updated
+          format: date-time
 
-    GetAccountResponse:
+    GetBalanceResponse:
       type: object
       properties:
-        account:
+        balance:
           type: object
-          $ref: "#/components/schemas/Account"
+          $ref: "#/components/schemas/Balance"
