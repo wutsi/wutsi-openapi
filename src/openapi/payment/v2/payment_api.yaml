@@ -42,7 +42,7 @@ paths:
 
   /v1/transactions/cashouts:
     post:
-      operationId: "create-cashouts"
+      operationId: "create-cashout"
       description: Transfer money to a user's wallet
       requestBody:
         required: true
