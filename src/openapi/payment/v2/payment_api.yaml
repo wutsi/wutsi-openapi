@@ -40,23 +40,23 @@ paths:
       security:
         - api_key: [ 'payment-manage' ]
 
-  /v1/transactions/transfers:
+  /v1/transactions/cashouts:
     post:
-      operationId: "create-transfer"
-      description: Transfer money to another user
+      operationId: "create-cashouts"
+      description: Transfer money to a user's wallet
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateTransferRequest'
+              $ref: '#/components/schemas/CreateCashoutRequest'
       responses:
         200:
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateTransferResponse'
+                $ref: '#/components/schemas/CreateCashoutResponse'
         409:
           description: The operation failed
       tags:
@@ -101,7 +101,7 @@ components:
       properties:
         paymentMethodToken:
           type: string
-          description: Token of the payment method from where the money will be transfered from.
+          description: Token of account from where money will be debitted.
         amount:
           type: number
           format: double
@@ -129,30 +129,26 @@ components:
             - PENDING
             - SUCESS
 
-    CreateTransferRequest:
+    CreateCashoutRequest:
       type: object
       properties:
-        recipientId:
-          type: integer
-          format: int64
-          description: ID of the recipient of the transfer
+        paymentMethodToken:
+          type: string
+          description: Token of the account where money will be transfered.
         amount:
           type: number
           format: double
-          description: Amout to transfer to the user's wallet
+          description: Amout to transfer to the user's account.
           minimum: 0
         currency:
           type: string
           description: 3 letter currency code
           maxLength: 3
-        description:
-          type: string
-          description: Description of the transfer
-          nullable: true
       required:
+        - paymentMethodToken
         - currency
 
-    CreateTransferResponse:
+    CreateCashoutResponse:
       type: object
       properties:
         id:
