@@ -114,25 +114,16 @@ paths:
       security:
         - api_key: [ 'payment-read' ]
 
-  /v1/transactions:
+  /v1/transactions/search:
     get:
       operationId: "search-transaction"
       description: Search transactions
-      parameters:
-        - in: query
-          name: limit
-          required: true
-          schema:
-            type: integer
-            format: int64
-            default: 20
-        - in: query
-          name: offset
-          required: true
-          schema:
-            type: integer
-            format: int64
-            default: 0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchTransactionRequest'
       responses:
         200:
           description: Success
@@ -377,6 +368,19 @@ components:
             - PENDING
             - FAILED
           description: Status of the transaction
+
+    SearchTransactionRequest:
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int64
+        limit:
+          type: integer
+          default: 30
+        offset:
+          type: integer
+          default: 0
 
     SearchTransactionResponse:
       type: object
