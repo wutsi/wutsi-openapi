@@ -40,40 +40,6 @@ paths:
       security:
         - api_key: [ 'user-manage' ]
 
-    get:
-      operationId: "search-account"
-      description: Search Account
-      parameters:
-        - in: query
-          name: phone-number
-          description: |
-            Phone number in the [E164](https://en.wikipedia.org/wiki/E.164) format
-          schema:
-            type: string
-        - in: query
-          name: limit
-          schema:
-            type: integer
-            format: int32
-            default: 20
-        - in: query
-          name: offset
-          schema:
-            type: integer
-            format: int32
-            default: 0
-      responses:
-        200:
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SearchAccountResponse'
-      tags:
-        - Account
-      security:
-        - api_key: [ 'user-read' ]
-
   /v1/accounts/search:
     post:
       operationId: "search-accounts"
@@ -474,6 +440,10 @@ components:
           items:
             type: integer
             format: int64
+        phoneNumber:
+          type: string
+          description: |
+            Phone number in the [E164](https://en.wikipedia.org/wiki/E.164) format
         limit:
           type: integer
           default: 30
