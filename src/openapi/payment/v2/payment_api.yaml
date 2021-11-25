@@ -115,7 +115,7 @@ paths:
         - api_key: [ 'payment-read' ]
 
   /v1/transactions/search:
-    get:
+    post:
       operationId: "search-transaction"
       description: Search transactions
       requestBody:
