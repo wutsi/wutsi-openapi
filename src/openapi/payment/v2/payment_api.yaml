@@ -375,7 +375,7 @@ components:
         userId:
           type: integer
           format: int64
-        tenanteId:
+        tenantId:
           type: integer
           format: int64
         limit:

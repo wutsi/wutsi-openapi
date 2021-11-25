@@ -74,6 +74,28 @@ paths:
       security:
         - api_key: [ 'user-read' ]
 
+  /v1/accounts/search:
+    post:
+      operationId: "search-accounts"
+      description: Search Account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchAccountRequest'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchAccountResponse'
+      tags:
+        - Account
+      security:
+        - api_key: [ 'user-read' ]
+
   /v1/accounts/{id}:
     get:
       operationId: "get-account"
@@ -442,6 +464,22 @@ components:
         account:
           type: object
           $ref: "#/components/schemas/Account"
+
+
+    SearchAccountRequest:
+      type: object
+      properties:
+        ids:
+          type: array
+          items:
+            type: integer
+            format: int64
+        limit:
+          type: integer
+          default: 30
+        offset:
+          type: integer
+          default: 0
 
     SearchAccountResponse:
       type: object
