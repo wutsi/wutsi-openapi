@@ -130,7 +130,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetTransactionResponse'
+                $ref: '#/components/schemas/SearchTransactionResponse'
         404:
           description: Transaction not found
       tags:
@@ -373,6 +373,9 @@ components:
       type: object
       properties:
         userId:
+          type: integer
+          format: int64
+        tenanteId:
           type: integer
           format: int64
         limit:
