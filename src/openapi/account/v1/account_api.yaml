@@ -42,7 +42,7 @@ paths:
 
   /v1/accounts/search:
     post:
-      operationId: "search-accounts"
+      operationId: "search-account"
       description: Search Account
       requestBody:
         required: true
