@@ -368,6 +368,10 @@ components:
             - PENDING
             - FAILED
           description: Status of the transaction
+        created:
+          type: string
+          description: Creation data-time
+          format: date-time
 
     SearchTransactionRequest:
       type: object
