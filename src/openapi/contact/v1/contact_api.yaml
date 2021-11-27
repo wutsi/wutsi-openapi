@@ -64,6 +64,10 @@ components:
         accountId:
           type: integer
           format: int64
+        tenantId:
+          type: integer
+          format: int64
+          description: ID of the tenant
         limit:
           type: integer
           default: 30
