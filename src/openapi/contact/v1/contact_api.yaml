@@ -125,6 +125,6 @@ components:
     SyncContactResponse:
       type: object
       properties:
-        contacts:
+        accountId:
           type: integer
           format: int64
