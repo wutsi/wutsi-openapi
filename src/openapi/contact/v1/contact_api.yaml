@@ -16,6 +16,14 @@ paths:
     post:
       operationId: "search-contact"
       description: Search contact
+      parameters:
+        - in: path
+          name: X-Tenant-ID
+          description: ID of the tenant
+          required: true
+          schema:
+            type: integer
+            format: int64
       requestBody:
         required: true
         content:
@@ -38,6 +46,14 @@ paths:
     post:
       operationId: "sync-contacts"
       description: Sync the contact list of an account
+      parameters:
+        - in: path
+          name: X-Tenant-ID
+          description: ID of the tenant
+          required: true
+          schema:
+            type: integer
+            format: int64
       requestBody:
         required: true
         content:
