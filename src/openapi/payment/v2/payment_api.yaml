@@ -314,7 +314,7 @@ components:
           type: string
           format: uuid
           description: ID of the transaction
-        userId:
+        accountId:
           type: integer
           format: int64
           description: ID of the user who initiated the transaction
