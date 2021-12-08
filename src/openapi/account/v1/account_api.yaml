@@ -656,7 +656,7 @@ components:
           type: string
           format: date-time
           description: Last modification Date/Time
-        superUser:
+        isSuperUser:
           type: boolean
           default: false
           description: |
