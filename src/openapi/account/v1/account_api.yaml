@@ -711,6 +711,11 @@ components:
           default: false
           description: |
             `true` if this is the account of super-user.
+        transferSecurity:
+          type: boolean
+          default: true
+          description: |
+            `true`, transfer will require confirmation from user
 
     Phone:
       type: object
