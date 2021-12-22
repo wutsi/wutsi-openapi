@@ -354,6 +354,13 @@ components:
           description: |
             Phone number in the [E164](https://en.wikipedia.org/wiki/E.164) format.
             **REQUIRED** if the `type=sms` or `type=runas`
+        tenantId:
+          type: integer
+          format: int64
+          description: |
+            ID of the tenant.
+            **REQUIRED** if the `type=sms` or `type=runas`
+          nullable: true
         mfaToken:
           type: string
           description: |
