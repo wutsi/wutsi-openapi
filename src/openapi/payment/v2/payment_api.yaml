@@ -474,10 +474,3 @@ components:
         transaction:
           type: object
           $ref: "#/components/schemas/Transaction"
-
-    RunJobResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Job ID
