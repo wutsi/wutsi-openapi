@@ -111,7 +111,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetKeyResponse'
       security:
-        - api_key: [ 'qr-manage' ]
+        - api_key: [ 'qr-read' ]
 
 components:
   securitySchemes:
@@ -173,7 +173,6 @@ components:
         token:
           type: string
           description: QR Code Token
-
 
     GetKeyResponse:
       type: object
