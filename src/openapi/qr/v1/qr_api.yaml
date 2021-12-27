@@ -20,14 +20,13 @@ servers:
     description: Production
 
 paths:
-  /v1/me:
+  /v1/account:
     post:
-      operationId: "me"
+      operationId: "account"
       description: |
         Create a QR code token for the current user.
         - The Header contains the following fields:
           - `alg`: Encryption algorith used
-          - `typ`: Type of token. Must be `ACCOUNT`
           - `kid`: ID of the encryption key used for signing the token
 
         - The payload contains the following fields:
@@ -35,7 +34,8 @@ paths:
           - `iat`: Time when the token was issued
           - `name`: The name of the user
           - `picture`: URL of the user's picture
-          - `business`: `true` if it's a business account
+          - 'tenant_id': ID of the tenant
+          - `entity_type`: Type of token. Must be `ACCOUNT`
 
       responses:
         200:
@@ -43,7 +43,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateAccountResponse'
+                $ref: '#/components/schemas/CreateAccountQRCodeResponse'
       tags:
         - QR
       security:
@@ -56,7 +56,6 @@ paths:
         Create a QR code token for a payment request.
         - The Header contains the following fields:
           - `alg`: Encryption algorith used
-          - `typ`: Type of token. Must be `PAYMENT`
           - `kid`: ID of the encryption key used for signing the token
 
         - The payload contains the following fields:
@@ -68,20 +67,22 @@ paths:
           - `invoice_id`: ID of the invoice associate with the payment
           - `reference_id`: Reference ID
           - `descr`: Description of the payment (max: 10 characters)
+          - 'tenant_id': ID of the tenant
+          - `entity_type`: Type of token. Must be `PAYMENT`
 
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreatePaymentRequest'
+              $ref: '#/components/schemas/CreatePaymentQRCodeRequest'
       responses:
         200:
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreatePaymentResponse'
+                $ref: '#/components/schemas/CreatePaymentQRCodeResponse'
       tags:
         - QR
       security:
@@ -119,7 +120,7 @@ components:
       name: Authorization
 
   schemas:
-    CreatePaymentRequest:
+    CreatePaymentQRCodeRequest:
       type: object
       properties:
         referenceId:
@@ -151,7 +152,7 @@ components:
         - currency
         - referenceId
 
-    CreatePaymentResponse:
+    CreatePaymentQRCodeResponse:
       type: object
       properties:
         token:
@@ -159,7 +160,7 @@ components:
           description: QR Code Token
 
 
-    CreateAccountResponse:
+    CreateAccountQRCodeResponse:
       type: object
       properties:
         token:
