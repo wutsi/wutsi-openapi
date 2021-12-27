@@ -89,6 +89,30 @@ paths:
       security:
         - api_key: [ 'qr-manage' ]
 
+
+  /v1/keys/{id}:
+    get:
+      operationId: "get-key"
+      description: |
+        Return the current security key used to signing the QR codes
+      parameters:
+        - in: path
+          name: id
+          description: ID of the key
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetKeyResponse'
+      security:
+        - api_key: [ 'qr-manage' ]
+
 components:
   securitySchemes:
     api_key:
@@ -149,3 +173,22 @@ components:
         token:
           type: string
           description: QR Code Token
+
+
+    GetKeyResponse:
+      type: object
+      properties:
+        key:
+          type: object
+          $ref: "#/components/schemas/Key"
+
+    Key:
+      type: object
+      properties:
+        algorithm:
+          type: string
+          description: Name of the security algorithm
+        content:
+          type: string
+          description: Content of the key, based-64 encoded
+
