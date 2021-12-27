@@ -33,7 +33,6 @@ paths:
         - The payload contains the following fields:
           - `sub`: The subject - which represent the ID of the merchant
           - `iat`: Time when the token was issued
-          - `iss`: Issuer of the token.
           - `name`: The name of the user
           - `picture`: URL of the user's picture
           - `business`: `true` if it's a business account
@@ -63,7 +62,6 @@ paths:
         - The payload contains the following fields:
           - `sub`: The subject - which represent the ID of the merchant
           - `iat`: Time when the token was issued
-          - `iss`: Issuer of the token.
           - `exp`: The expiration time of the token. If a payment is performed after this time, it should fails
           - `amount`: The amount of the payment
           - `currency`: The currency of the payment
@@ -156,9 +154,6 @@ components:
     CreatePaymentResponse:
       type: object
       properties:
-        referenceId:
-          type: string
-          format: uuid
         token:
           type: string
           description: QR Code Token
@@ -167,9 +162,6 @@ components:
     CreateAccountResponse:
       type: object
       properties:
-        referenceId:
-          type: string
-          format: uuid
         token:
           type: string
           description: QR Code Token
