@@ -20,6 +20,36 @@ servers:
     description: Production
 
 paths:
+  /v1/me:
+    post:
+      operationId: "me"
+      description: |
+        Create a QR code token for the current user.
+        - The Header contains the following fields:
+          - `alg`: Encryption algorith used
+          - `typ`: Type of token. Must be `ACCOUNT`
+          - `kid`: ID of the encryption key used for signing the token
+
+        - The payload contains the following fields:
+          - `sub`: The subject - which represent the ID of the merchant
+          - `iat`: Time when the token was issued
+          - `iss`: Issuer of the token.
+          - `name`: The name of the user
+          - `picture`: URL of the user's picture
+          - `business`: `true` if it's a business account
+
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateAccountResponse'
+      tags:
+        - QR
+      security:
+        - api_key: [ 'qr-manage' ]
+
   /v1/payment:
     post:
       operationId: "payment"
@@ -100,6 +130,17 @@ components:
         - referenceId
 
     CreatePaymentResponse:
+      type: object
+      properties:
+        referenceId:
+          type: string
+          format: uuid
+        token:
+          type: string
+          description: QR Code Token
+
+
+    CreateAccountResponse:
       type: object
       properties:
         referenceId:
