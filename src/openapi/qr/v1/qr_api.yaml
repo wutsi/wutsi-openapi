@@ -29,6 +29,7 @@ paths:
           - `alg`: Encryption algorith used
           - `typ`: Type of token. Must be `PAYMENT`
           - `kid`: ID of the encryption key used for signing the token
+
         - The payload contains the following fields:
           - `sub`: The subject - which represent the ID of the merchant
           - `iat`: Time when the token was issued
