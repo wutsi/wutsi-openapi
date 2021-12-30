@@ -513,6 +513,10 @@ components:
           type: string
           description: Creation data-time
           format: date-time
+        paymentRequestId:
+          type: string
+          description: ID of the payment request
+          nullable: true
 
     GetTransactionResponse:
       type: object
