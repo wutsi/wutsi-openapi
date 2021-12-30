@@ -536,10 +536,12 @@ components:
           type: string
           description: Description of the transaction
           nullable: true
+          maxLength: 100
         invoiceId:
           type: string
           description: ID of the invoice associated with the payment
           nullable: true
+          maxLength: 36
         timeToLive:
           type: integer
           description: Life span of this request in seconds. Customer must honor this request within this duration
