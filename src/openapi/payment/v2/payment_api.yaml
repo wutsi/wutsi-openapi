@@ -613,6 +613,10 @@ components:
           type: string
           format: uuid
           description: ID of the request
+        accountId:
+          type: number
+          format: int64
+          description: ID of the account who created the request
         amount:
           type: number
           format: double
