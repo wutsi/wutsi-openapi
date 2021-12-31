@@ -635,6 +635,15 @@ components:
           type: integer
           description: Life span of this request in seconds. Customer must honor this request within this duration
           nullable: true
+        created:
+          type: string
+          format: date-time
+          description: Creation time
+        expires:
+          type: string
+          format: date-time
+          description: Expiry date
+          nullable: true
 
     GetPaymentRequestResponse:
       type: object
