@@ -13,9 +13,9 @@ servers:
     description: Production
 
 paths:
-  /v1/qr-codes/encode:
+  /v1/encoder:
     post:
-      operationId: "encode-qr-code"
+      operationId: "encode"
       description: Convert an entity to its QR code representation
       requestBody:
         required: true
@@ -35,9 +35,9 @@ paths:
       security:
         - api_key: [ 'qr-manage' ]
 
-  /v1/qr-codes/decode:
+  /v1/decoder:
     post:
-      operationId: "decode-qr-code"
+      operationId: "decode"
       description: Convert a QR code to its entity representation
       requestBody:
         required: true
