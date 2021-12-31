@@ -648,6 +648,6 @@ components:
     GetPaymentRequestResponse:
       type: object
       properties:
-        transaction:
+        paymentRequest:
           type: object
           $ref: "#/components/schemas/PaymentRequest"
