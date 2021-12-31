@@ -107,10 +107,10 @@ components:
         id:
           type: string
           description: ID of the entity
-        timeToLive:
+        expires:
           type: integer
-          description: Time-To-Live of the QR code
-          nullable: true
+          format: int64
+          description: Expiry time
 
     DecodeQRCodeResponse:
       type: object
