@@ -142,6 +142,9 @@ components:
         dateFormat:
           type: string
           description: Date Format
+        timeFormat:
+          type: string
+          description: Time Format
         dateTimeFormat:
           type: string
           description: Date+Time Format
