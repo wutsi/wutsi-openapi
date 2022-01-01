@@ -130,12 +130,21 @@ components:
         currency:
           type: string
           description: Currency of this tenant
+        currencySymbol:
+          type: string
+          description: Currency Symbol
         numberFormat:
           type: string
           description: Format to apply for numeric values
         monetaryFormat:
           type: string
           description: Format to apply to monetary values
+        dateFormat:
+          type: string
+          description: Date Format
+        dateTimeFormat:
+          type: string
+          description: Date+Time Format
         limits:
           type: object
           description: Information about limits of users
