@@ -667,11 +667,11 @@ components:
         business:
           type: boolean
           default: false
-          description: TRUE for business account
+          description: Business account?
         retail:
           type: boolean
           default: false
-          description: TRUE for retailler business account
+          description: Retail account?
 
     Account:
       type: object
