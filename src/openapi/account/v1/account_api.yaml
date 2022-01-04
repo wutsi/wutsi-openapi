@@ -171,6 +171,7 @@ paths:
               - language
               - country
               - is-transfer-secured
+              - business
       requestBody:
         required: true
         content:
@@ -456,8 +457,10 @@ components:
           nullable: true
         addPaymentMethod:
           type: boolean
-          description: |
-            if `true`, the phone number assciated with the account will be added as payment method
+          description: Add the phone number as payment method?
+        business:
+          type: boolean
+          description: Business account?
       required:
         - phoneNumber
 
