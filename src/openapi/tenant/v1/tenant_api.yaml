@@ -127,7 +127,6 @@ components:
           description: Business account?
         retail:
           type: boolean
-          nullable: true
           description: Retail account?
         amount:
           type: number
