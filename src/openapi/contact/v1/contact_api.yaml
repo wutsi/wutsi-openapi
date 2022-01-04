@@ -12,6 +12,28 @@ servers:
     description: Production
 
 paths:
+  /v1/contacts:
+    post:
+      operationId: "create-contact"
+      description: Create contact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateContactRequest'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateContactResponse'
+      tags:
+        - contact
+      security:
+        - api_key: [ 'contact-read' ]
+
   /v1/contacts/search:
     post:
       operationId: "search-contact"
@@ -68,9 +90,10 @@ components:
     CreateContactRequest:
       type: object
       properties:
-        accountId:
+        contactId:
           type: integer
           format: int64
+          description: ID of the contact's account
 
     CreateContactResponse:
       type: object
@@ -89,7 +112,7 @@ components:
         contactId:
           type: integer
           format: int64
-          description: ID of the contact
+          description: ID of the contact's account
         created:
           type: string
           format: date-time
