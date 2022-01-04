@@ -65,6 +65,20 @@ components:
       name: Authorization
 
   schemas:
+    CreateContactRequest:
+      type: object
+      properties:
+        accountId:
+          type: integer
+          format: int64
+
+    CreateContactResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+
     ContactSummary:
       type: object
       properties:
@@ -84,10 +98,6 @@ components:
     SearchContactRequest:
       type: object
       properties:
-        accountId:
-          type: integer
-          format: int64
-          description: ID of the account
         limit:
           type: integer
           default: 30
