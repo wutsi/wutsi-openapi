@@ -121,6 +121,11 @@ components:
     SearchContactRequest:
       type: object
       properties:
+        contactIds:
+          type: array
+          items:
+            type: integer
+            format: int64
         limit:
           type: integer
           default: 30
