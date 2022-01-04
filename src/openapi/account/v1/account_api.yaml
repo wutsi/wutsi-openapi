@@ -664,7 +664,14 @@ components:
           default: false
           description: |
             `true` if this is the account of super-user
-
+        business:
+          type: boolean
+          default: false
+          description: TRUE for business account
+        retail:
+          type: boolean
+          default: false
+          description: TRUE for retailler business account
 
     Account:
       type: object
@@ -721,7 +728,14 @@ components:
           default: true
           description: |
             `true`, transfer will require confirmation from user
-
+        business:
+          type: boolean
+          default: false
+          description: TRUE for business account
+        retail:
+          type: boolean
+          default: false
+          description: TRUE for retailler business account
 
 
     Phone:
