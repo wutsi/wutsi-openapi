@@ -160,7 +160,7 @@ paths:
       tags:
         - Transactions
       security:
-        - api_key: [ 'payment-read' ]
+        - api_key: [ 'payment-manage' ]
 
   /v1/accounts/{account-id}/balance:
     get:
