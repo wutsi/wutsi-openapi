@@ -755,9 +755,18 @@ components:
           nullable: true
           description: ID of the business category
         whatsapp:
-          type: boolean
-          description: if TRUE, the account is associated with Whatsapp
-
+          type: string
+          description: Whatsapp phone number to use to contact the user
+          nullable: true
+        address:
+          type: string
+          description: Address
+          nullable: true
+        city_id:
+          type: number
+          format: int64
+          nullable: true
+          description: ID of the city
 
     Phone:
       type: object
