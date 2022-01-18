@@ -655,6 +655,14 @@ components:
           format: date-time
           description: Expiry date
           nullable: true
+        approved:
+          type: string
+          format: date-time
+          description: Approval date/time
+          nullable: true
+        requiresApproval:
+          type: boolean
+          description: Is this transaction should be approved by the receiver?
 
     GetTransactionResponse:
       type: object
