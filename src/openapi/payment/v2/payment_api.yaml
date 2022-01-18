@@ -650,6 +650,11 @@ components:
           type: string
           description: ID of the payment request
           nullable: true
+        expires:
+          type: string
+          format: date-time
+          description: Expiry date
+          nullable: true
 
     GetTransactionResponse:
       type: object
