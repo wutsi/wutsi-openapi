@@ -176,6 +176,8 @@ paths:
               - website
               - category-id
               - whatsapp
+              - street
+              - city-id
       requestBody:
         required: true
         content:
@@ -758,9 +760,9 @@ components:
           type: string
           description: Whatsapp phone number to use to contact the user
           nullable: true
-        address:
+        street:
           type: string
-          description: Address
+          description: Street of the address
           nullable: true
         city_id:
           type: number
