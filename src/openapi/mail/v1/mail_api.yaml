@@ -47,9 +47,6 @@ components:
     SendMessageRequest:
       type: object
       properties:
-        sender:
-          type: object
-          $ref: "#/components/schemas/Party"
         recipient:
           type: object
           $ref: "#/components/schemas/Party"
