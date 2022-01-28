@@ -405,7 +405,6 @@ components:
           description: Last modification Date/Time
         visible:
           type: boolean
-          nullable: true
 
     AddPictureRequest:
       type: object
