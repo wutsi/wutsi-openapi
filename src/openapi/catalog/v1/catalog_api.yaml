@@ -137,6 +137,7 @@ paths:
               - price
               - comparable-price
               - category-id
+              - thumbnail-id
               - visible
       requestBody:
         required: true
@@ -308,13 +309,22 @@ components:
     SearchProductRequest:
       type: object
       properties:
-        ids:
+        productIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        categoryIds:
           type: array
           items:
             type: integer
             format: int64
         visible:
           type: boolean
+          nullable: true
+        accountId:
+          type: integer
+          format: int64
           nullable: true
         limit:
           type: integer
@@ -351,9 +361,9 @@ components:
           type: integer
           format: int64
           description: Unique identifier of the product
-        pictureUrl:
-          type: string
-          format: url
+        thumbnail:
+          type: object
+          $ref: "#/components/schemas/PictureSummary"
           nullable: true
         title:
           type: string
@@ -387,6 +397,10 @@ components:
           type: integer
           format: int64
           description: Unique identifier of the product
+        thumbnail:
+          type: object
+          $ref: "#/components/schemas/PictureSummary"
+          nullable: true
         pictures:
           type: array
           items:
