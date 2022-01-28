@@ -437,3 +437,11 @@ components:
           type: integer
           format: int64
           description: ID of the picture created
+
+    UpdateProductAttributeRequest:
+      type: object
+      properties:
+        value:
+          type: string
+          description: Value of the
+          nullable: true
