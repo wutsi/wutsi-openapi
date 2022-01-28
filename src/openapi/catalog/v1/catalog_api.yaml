@@ -90,9 +90,10 @@ paths:
       security:
         - api_key: [ 'catalog-read' ]
 
+  /v1/products/{id}/attributes/{name}:
     post:
-      operationId: "update-product"
-      description: Update an product
+      operationId: "update-account-attribute"
+      description: Update an product attribute
       parameters:
         - in: path
           name: id
@@ -101,19 +102,29 @@ paths:
           schema:
             type: integer
             format: int64
+        - in: path
+          name: name
+          description: Name of the attribute to update
+          required: true
+          schema:
+            type: string
+            enum:
+              - title
+              - summary
+              - description
+              - price
+              - comparable-price
+              - category-id
+              - visible
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateProductRequest'
+              $ref: '#/components/schemas/UpdateProductAttributeRequest'
       responses:
         200:
           description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UpdateProductResponse'
         403:
           description: The caller is not the owner of the product
         404:
@@ -335,11 +346,10 @@ components:
           type: integer
           format: int64
           description: Unique identifier of the product
-        pictures:
-          type: array
-          items:
-            $ref: "#/components/schemas/PictureSummary"
-            description: URL of the product image
+        pictureUrl:
+          type: string
+          format: url
+          nullable: true
         title:
           type: string
           description: Product title
