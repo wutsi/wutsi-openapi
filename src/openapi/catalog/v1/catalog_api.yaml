@@ -398,10 +398,12 @@ components:
         summary:
           type: string
           description: Product summary
+          nullable: true
         categoryId:
           type: integer
           format: int64
           description: Category of the product
+          nullable: true
         price:
           type: number
           format: double
