@@ -92,7 +92,7 @@ paths:
 
   /v1/products/{id}/attributes/{name}:
     post:
-      operationId: "update-account-attribute"
+      operationId: "update-product-attribute"
       description: Update an product attribute
       parameters:
         - in: path
