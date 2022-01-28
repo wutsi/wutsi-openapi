@@ -109,7 +109,7 @@ paths:
       tags:
         - Product
       security:
-        - api_key: [ 'product-manage' ]
+        - api_key: [ 'catalog-manage' ]
 
 
   /v1/products/{id}/attributes/{name}:
