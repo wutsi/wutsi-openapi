@@ -371,7 +371,6 @@ components:
         currency:
           type: string
           description: Product's country
-          nullable: true
         created:
           type: string
           format: date-time
