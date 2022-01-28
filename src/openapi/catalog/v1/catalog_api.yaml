@@ -395,6 +395,9 @@ components:
         currency:
           type: string
           description: Product's currency
+        visible:
+          type: boolean
+          description: is the product visible
         created:
           type: string
           format: date-time
@@ -403,8 +406,6 @@ components:
           type: string
           format: date-time
           description: Last modification Date/Time
-        visible:
-          type: boolean
 
     AddPictureRequest:
       type: object
