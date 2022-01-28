@@ -36,7 +36,7 @@ paths:
       tags:
         - Product
       security:
-        - api_key: [ 'product-manage' ]
+        - api_key: [ 'catalog-manage' ]
 
   /v1/products/search:
     post:
@@ -60,7 +60,7 @@ paths:
       tags:
         - Product
       security:
-        - api_key: [ 'product-read' ]
+        - api_key: [ 'catalog-read' ]
 
   /v1/products/{id}:
     get:
@@ -88,7 +88,7 @@ paths:
       tags:
         - Product
       security:
-        - api_key: [ 'product-read' ]
+        - api_key: [ 'catalog-read' ]
 
     post:
       operationId: "update-product"
@@ -121,7 +121,7 @@ paths:
       tags:
         - Product
       security:
-        - api_key: [ 'product-manage' ]
+        - api_key: [ 'catalog-manage' ]
 
     delete:
       operationId: "delete-product"
@@ -176,7 +176,7 @@ paths:
       tags:
         - Product
       security:
-        - api_key: [ 'product-manage' ]
+        - api_key: [ 'catalog-manage' ]
 
   /v1/products/pictures/{id}:
     delete:
@@ -196,7 +196,7 @@ paths:
       tags:
         - Product
       security:
-        - api_key: [ 'product-manage' ]
+        - api_key: [ 'catalog-manage' ]
 
 components:
   securitySchemes:
@@ -223,6 +223,7 @@ components:
           type: integer
           format: int64
           description: Category of the product
+          nullable: true
         price:
           type: number
           format: double
@@ -383,10 +384,6 @@ components:
         summary:
           type: string
           description: Product summary
-        description:
-          type: string
-          description: Product long description
-          nullable: true
         categoryId:
           type: integer
           format: int64
