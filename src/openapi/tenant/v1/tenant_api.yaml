@@ -215,6 +215,10 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Fee"
+        noProductImageUrl:
+          type: string
+          format: url
+          description: URL of empty product
 
     GetTenantResponse:
       type: object
