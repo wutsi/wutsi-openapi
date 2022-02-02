@@ -223,7 +223,7 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Fee"
-        noProductImageUrl:
+        product:
           type: object
           $ref: "#/components/schemas/Product"
 
