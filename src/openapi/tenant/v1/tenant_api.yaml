@@ -227,6 +227,7 @@ components:
           type: object
           $ref: "#/components/schemas/Product"
 
+
     GetTenantResponse:
       type: object
       properties:
