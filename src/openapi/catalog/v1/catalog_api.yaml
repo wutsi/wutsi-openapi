@@ -39,7 +39,7 @@ paths:
         - api_key: [ 'catalog-manage' ]
 
   /v1/categories/search:
-    get:
+    post:
       operationId: "search-categories"
       description: Search product categories
       requestBody:
