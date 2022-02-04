@@ -636,9 +636,6 @@ components:
           type: string
           description: Category title
           maxLength: 100
-        sortOrder:
-          type: integer
-          description: Sort order
       required:
         - title
 
@@ -691,8 +688,6 @@ components:
         title:
           type: string
           maxLength: 100
-        sortOrder:
-          type: integer
       required:
         - title
 
