@@ -38,9 +38,16 @@ paths:
       security:
         - api_key: [ 'catalog-manage' ]
 
+  /v1/categories/search:
     get:
-      operationId: "all-categories"
-      description: Return all the product categories
+      operationId: "search-categories"
+      description: Search product categories
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchCategoryRequest'
       responses:
         200:
           description: Success
@@ -673,6 +680,14 @@ components:
           description: ID of the category
         title:
           type: string
+
+    SearchCategoryRequest:
+      type: object
+      properties:
+        accountId:
+          type: integer
+          format: int64
+          nullable: true
 
     SearchCategoryResponse:
       type: object
