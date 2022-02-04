@@ -659,9 +659,6 @@ components:
           description: ID of the category
         title:
           type: string
-        sortOrder:
-          type: integer
-          description: Sort order
 
     GetCategoryResponse:
       type: object
@@ -679,9 +676,6 @@ components:
           description: ID of the category
         title:
           type: string
-        sortOrder:
-          type: integer
-          description: Sort order
 
     SearchCategoryResponse:
       type: object
@@ -696,11 +690,9 @@ components:
       properties:
         title:
           type: string
-          description: Category title
           maxLength: 100
         sortOrder:
           type: integer
-          description: Sort order
       required:
         - title
 
