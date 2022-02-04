@@ -687,7 +687,6 @@ components:
         accountId:
           type: integer
           format: int64
-          nullable: true
 
     SearchCategoryResponse:
       type: object
