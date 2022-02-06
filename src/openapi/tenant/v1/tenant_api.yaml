@@ -173,6 +173,9 @@ components:
         installUrl:
           type: string
           description: URL from where to install the App
+        webappUrl:
+          type: string
+          description: URL of the associated webapp
         currency:
           type: string
           description: Currency of this tenant
