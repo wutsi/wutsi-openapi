@@ -196,6 +196,7 @@ paths:
       security:
         - api_key: [ 'user-manage' ]
 
+
   /v1/accounts/{id}/password:
     post:
       operationId: "save-password"
@@ -258,6 +259,63 @@ paths:
       security:
         - api_key: [ 'user-read' ]
 
+
+  /v1/accounts/{id}/business-hours:
+    post:
+      operationId: "save-business-hours"
+      description: Save the business hour of a given day
+      parameters:
+        - in: path
+          name: id
+          description: ID of the account
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaveBusinessHoursRequest'
+      responses:
+        200:
+          description: Success
+        403:
+          description: The caller is not the owner of the account
+        404:
+          description: The account not found
+      tags:
+        - Password
+      security:
+        - api_key: [ 'user-manage' ]
+
+    get:
+      operationId: "list-business-hours"
+      description: Return business hours of a given account
+      parameters:
+        - in: path
+          name: id
+          description: ID of the account
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBusinessHoursResponse'
+        403:
+          description: The caller is not the owner of the account
+        404:
+          description: The account not found
+      tags:
+        - Password
+      security:
+        - api_key: [ 'user-manage' ]
 
 
   /v1/accounts/{id}/payment-methods:
@@ -861,3 +919,55 @@ components:
           type: string
           format: date-time
           description: Updated date/time
+
+    SaveBusinessHoursRequest:
+      type: object
+      properties:
+        dayOfWeek:
+          type: integer
+          description: Day of the week. 1=Monday..7=Sunday
+          minimum: 1
+          maximum: 7
+        opened:
+          type: boolean
+          description: |
+            `true` if the business if opened this day of the weeb
+        openTime:
+          type: string
+          format: time
+          description: |
+            Time when the business opens, in the format HH:mm
+        closeTime:
+          type: string
+          format: time
+          description: |
+            Time when the business closes, in the format HH:mm
+      required:
+        - startTime
+        - endTime
+
+    BusinessHours:
+      type: object
+      properties:
+        dayOfWeek:
+          type: integer
+          description: Day of the week. 1=Monday..7=Sunday
+        opened:
+          type: boolean
+          description: |
+            `true` if the business if opened this day of the weeb
+        openTime:
+          type: string
+          format: time
+          description: |
+            Time when the business opens, in the format HH:mm
+        closeTime:
+          type: string
+          format: time
+          description: |
+            Time when the business closes, in the format HH:mm
+
+    ListBusinessHoursResponse:
+      type: array
+      items:
+        $ref: "#/components/schemas/BusinessHours"
