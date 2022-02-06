@@ -937,14 +937,17 @@ components:
           format: time
           description: |
             Time when the business opens, in the format HH:mm
+          minLength: 5
+          maxLength: 5
+          nullable: true
         closeTime:
           type: string
           format: time
           description: |
             Time when the business closes, in the format HH:mm
-      required:
-        - startTime
-        - endTime
+          minLength: 5
+          maxLength: 5
+          nullable: true
 
     BusinessHour:
       type: object
@@ -961,11 +964,13 @@ components:
           format: time
           description: |
             Time when the business opens, in the format HH:mm
+          nullable: true
         closeTime:
           type: string
           format: time
           description: |
             Time when the business closes, in the format HH:mm
+          nullable: true
 
     ListBusinessHourResponse:
       type: object
