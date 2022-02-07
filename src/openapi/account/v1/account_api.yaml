@@ -925,9 +925,9 @@ components:
       properties:
         dayOfWeek:
           type: integer
-          description: Day of the week. 1=Monday..7=Sunday
-          minimum: 1
-          maximum: 7
+          description: Day of the week. 0=Monday..6=Sunday
+          minimum: 0
+          maximum: 6
         opened:
           type: boolean
           description: |
