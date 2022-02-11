@@ -214,7 +214,7 @@ components:
           type: string
           description: URL from where to install the Android App
           nullable: true
-        installiOSUrl:
+        installIOSUrl:
           type: string
           description: URL from where to install the iOS App
           nullable: true
