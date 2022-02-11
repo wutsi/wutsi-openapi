@@ -284,5 +284,6 @@ components:
       type: object
       properties:
         tenants:
-          type: object
-          $ref: "#/components/schemas/TenantSummary"
+          type: array
+          items:
+            $ref: "#/components/schemas/TenantSummary"
