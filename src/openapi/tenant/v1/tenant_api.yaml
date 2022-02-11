@@ -210,7 +210,7 @@ components:
         installUrl:
           type: string
           description: URL from where to install the App
-        installAndoidUrl:
+        installAndroidUrl:
           type: string
           description: URL from where to install the Android App
           nullable: true
