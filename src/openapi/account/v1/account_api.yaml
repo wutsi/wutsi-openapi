@@ -1010,7 +1010,7 @@ components:
     ListCategoryResponse:
       type: object
       properties:
-        businessHours:
+        categories:
           type: array
           items:
             $ref: "#/components/schemas/CategorySummary"
