@@ -1013,4 +1013,4 @@ components:
         businessHours:
           type: array
           items:
-            $ref: "#/components/schemas/ListCategoryResponse"
+            $ref: "#/components/schemas/CategorySummary"
