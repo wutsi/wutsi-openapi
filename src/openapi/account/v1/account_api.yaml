@@ -831,11 +831,6 @@ components:
         website:
           type: string
           nullable: true
-        categoryId:
-          type: number
-          format: int64
-          nullable: true
-          description: ID of the business category
         whatsapp:
           type: string
           description: Whatsapp phone number to use to contact the user
@@ -994,7 +989,7 @@ components:
           items:
             $ref: "#/components/schemas/BusinessHour"
 
-    CategorySummary:
+    Category:
       type: object
       properties:
         id:
@@ -1013,4 +1008,4 @@ components:
         categories:
           type: array
           items:
-            $ref: "#/components/schemas/CategorySummary"
+            $ref: "#/components/schemas/Category"
