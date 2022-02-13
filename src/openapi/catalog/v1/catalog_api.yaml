@@ -772,13 +772,6 @@ components:
             - NUMERIC
             - BOOLEAN
             - DATE
-        unitType:
-          nullable: true
-          type: string
-          enum:
-            - LENGTH
-            - WEIGHT
-            - AREA
 
     ProductType:
       type: object
