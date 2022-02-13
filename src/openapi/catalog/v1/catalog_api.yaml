@@ -407,6 +407,47 @@ paths:
       security:
         - api_key: [ 'catalog-manage' ]
 
+  /v1/product-types:
+    get:
+      operationId: "list-product-types"
+      description: Return all the product types
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListProductTypeResponse'
+      tags:
+        - Product
+      security:
+        - api_key: [ 'catalog-read' ]
+
+  /v1/product-types/{id}:
+    get:
+      operationId: "list-product-types"
+      description: Return a product types
+      parameters:
+        - in: path
+          name: id
+          description: ID of the product
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetProductTypeResponse'
+      tags:
+        - Product
+      security:
+        - api_key: [ 'catalog-read' ]
+
+
 components:
   securitySchemes:
     api_key:
@@ -713,3 +754,64 @@ components:
           type: string
           description: Value of the
           nullable: true
+
+    ProductAttributeType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        title:
+          type: string
+        type:
+          type: string
+          enum:
+            - TEXT
+            - NUMERIC
+            - BOOLEAN
+            - DATE
+
+    ProductType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        title:
+          type: string
+        attributeTypes:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductAttributeType"
+
+    GetProductTypeResponse:
+      type: object
+      properties:
+        productType:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductType"
+
+    ProductTypeSummary:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        title:
+          type: string
+
+    ListProductTypeResponse:
+      type: object
+      properties:
+        productTypes:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductTypeSummary"
+
