@@ -191,7 +191,6 @@ paths:
               - comparable-price
               - thumbnail-id
               - visible
-              - category-id
               - sub-category-id
       requestBody:
         required: true
