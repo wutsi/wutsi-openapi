@@ -506,6 +506,11 @@ components:
           type: string
         visible:
           type: boolean
+        parentId:
+          type: integer
+          format: int64
+          description: ID of the parent category
+          nullable: true
         attributes:
           type: array
           items:
@@ -527,6 +532,11 @@ components:
           description: ID of the category
         title:
           type: string
+        parentId:
+          type: integer
+          format: int64
+          description: ID of the parent category
+          nullable: true
 
     SearchCategoryRequest:
       type: object
