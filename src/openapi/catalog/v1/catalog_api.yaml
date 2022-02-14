@@ -191,6 +191,8 @@ paths:
               - comparable-price
               - thumbnail-id
               - visible
+              - category-id
+              - sub-category-id
       requestBody:
         required: true
         content:
@@ -298,6 +300,12 @@ components:
           format: double
           description: Comparable Price
           nullable: true
+        categoryId:
+          type: integer
+          format: int64
+        subCategoryId:
+          type: integer
+          format: int64
       required:
         - title
 
