@@ -504,8 +504,6 @@ components:
           description: ID of the category
         title:
           type: string
-        visible:
-          type: boolean
         parentId:
           type: integer
           format: int64
