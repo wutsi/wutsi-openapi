@@ -1,0 +1,153 @@
+openapi: "3.0.0"
+info:
+  title: "Wutsi Cart API"
+  description: |
+    API for managing Online Cart
+  version: "1.0.0"
+
+servers:
+  - url: https://wutsi-cart-server-test.herokuapp.com
+    description: Sandbox
+  - url: https://wutsi-cart-server-prod.herokuapp.com
+    description: Production
+
+paths:
+  /v1/carts/{merchant-id}:
+    get:
+      operationId: "get-cart"
+      description: Return the Cart of a user associated with a given marchant
+      parameters:
+        - in: path
+          name: merchant-id
+          description: ID of the merchant
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCartResponse'
+        403:
+          description: The caller is not authorized to call this endpoint
+        409:
+          description: Error
+      tags:
+        - Cart
+      security:
+        - api_key: [ 'cart-read' ]
+
+  /v1/carts/{merchant-id}/product/{product-id}:
+    post:
+      operationId: "add-product"
+      description: Add a Product into a cart
+      parameters:
+        - in: path
+          name: merchant-id
+          description: ID of the merchant
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - in: path
+          name: product-id
+          description: ID of the product to add
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddProductRequest'
+      responses:
+        200:
+          description: Success
+        403:
+          description: The caller is not authorized to call this endpoint
+        409:
+          description: Error
+      tags:
+        - Cart
+      security:
+        - api_key: [ 'cart-manage' ]
+
+    delete:
+      operationId: "remove-product"
+      description: Remove a product from the Cart
+      parameters:
+        - in: path
+          name: merchant-id
+          description: ID of the merchant
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - in: path
+          name: product-id
+          description: ID of the product
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Success
+        403:
+          description: The caller is not authorized to call this endpoint
+        409:
+          description: Error
+      tags:
+        - Cart
+      security:
+        - api_key: [ 'cart-manage' ]
+
+
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: Authorization
+
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ID of the product
+        quantity:
+          type: integer
+          description: Number of items
+          default: 1
+
+    Cart:
+      type: object
+      properties:
+        products:
+          type: array
+          items:
+            $ref: "#/components/schemas/Product"
+
+    GetCartResponse:
+      type: object
+      properties:
+        id:
+          type: object
+          $ref: "#/components/schemas/Cart"
+
+    AddProductRequest:
+      type: object
+      properties:
+        quantity:
+          type: integer
+          description: Number of items
+          default: 1
+          minimum: 1
