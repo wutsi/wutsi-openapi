@@ -149,6 +149,12 @@ components:
     Cart:
       type: object
       properties:
+        merchantId:
+          type: integer
+          format: int64
+        accountId:
+          type: integer
+          format: int64
         products:
           type: array
           items:
