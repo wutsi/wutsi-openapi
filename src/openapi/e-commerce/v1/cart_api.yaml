@@ -167,7 +167,7 @@ components:
     GetCartResponse:
       type: object
       properties:
-        id:
+        cart:
           type: object
           $ref: "#/components/schemas/Cart"
 
