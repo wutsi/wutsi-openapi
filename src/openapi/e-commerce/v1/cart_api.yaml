@@ -115,7 +115,7 @@ components:
       name: Authorization
 
   schemas:
-    CartProduct:
+    Product:
       type: object
       properties:
         productId:
@@ -133,7 +133,7 @@ components:
         products:
           type: array
           items:
-            $ref: "#/components/schemas/CartProduct"
+            $ref: "#/components/schemas/Product"
 
     GetCartResponse:
       type: object
