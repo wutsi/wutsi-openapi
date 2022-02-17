@@ -82,10 +82,6 @@ paths:
       responses:
         200:
           description: Success
-        403:
-          description: The caller is not authorized to call this endpoint
-        409:
-          description: Error
       tags:
         - Cart
       security:
