@@ -1,8 +1,7 @@
 openapi: "3.0.0"
 info:
   title: "Wutsi Catalog API"
-  description: |
-    API for managing product catalog
+  description: API for managing product catalog
   version: "1.0.0"
 
 servers:

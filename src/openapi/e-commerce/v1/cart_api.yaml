@@ -1,8 +1,7 @@
 openapi: "3.0.0"
 info:
   title: "Wutsi Cart API"
-  description: |
-    API for managing Online Cart
+  description: API for managing Online Cart
   version: "1.0.0"
 
 servers:
@@ -40,10 +39,10 @@ paths:
       security:
         - api_key: [ 'cart-read' ]
 
-  /v1/carts/{merchant-id}/product/{product-id}:
+  /v1/carts/{merchant-id}/products/{product-id}:
     post:
-      operationId: "add-product"
-      description: Add a Product into a cart
+      operationId: "save-product"
+      description: Add/Update a Product into a cart
       parameters:
         - in: path
           name: merchant-id
@@ -116,10 +115,10 @@ components:
       name: Authorization
 
   schemas:
-    Product:
+    CartProduct:
       type: object
       properties:
-        id:
+        productId:
           type: integer
           format: int64
           description: ID of the product
@@ -134,7 +133,7 @@ components:
         products:
           type: array
           items:
-            $ref: "#/components/schemas/Product"
+            $ref: "#/components/schemas/CartProduct"
 
     GetCartResponse:
       type: object
