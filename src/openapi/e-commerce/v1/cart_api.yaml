@@ -30,10 +30,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetCartResponse'
-        403:
-          description: The caller is not authorized to call this endpoint
-        409:
-          description: Error
+      tags:
+        - Cart
+      security:
+        - api_key: [ 'cart-read' ]
+
+    delete:
+      operationId: "delete-cart"
+      description: Delete the current cart
+      parameters:
+        - in: path
+          name: merchant-id
+          description: ID of the merchant
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Success
       tags:
         - Cart
       security:
