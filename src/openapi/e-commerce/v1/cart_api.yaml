@@ -36,8 +36,8 @@ paths:
         - api_key: [ 'cart-read' ]
 
     delete:
-      operationId: "delete-cart"
-      description: Delete the current cart
+      operationId: "empty-cart"
+      description: Empty a cart
       parameters:
         - in: path
           name: merchant-id
