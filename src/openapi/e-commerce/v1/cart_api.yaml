@@ -63,7 +63,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AddProductRequest'
+              $ref: '#/components/schemas/SaveProductRequest'
       responses:
         200:
           description: Success
@@ -142,7 +142,7 @@ components:
           type: object
           $ref: "#/components/schemas/Cart"
 
-    AddProductRequest:
+    SaveProductRequest:
       type: object
       properties:
         quantity:
