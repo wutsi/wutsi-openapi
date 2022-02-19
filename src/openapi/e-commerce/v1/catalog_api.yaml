@@ -193,6 +193,7 @@ paths:
               - sub-category-id
               - quantity
               - max-order
+              - type
       requestBody:
         required: true
         content:
