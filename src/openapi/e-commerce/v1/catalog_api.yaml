@@ -191,6 +191,8 @@ paths:
               - thumbnail-id
               - visible
               - sub-category-id
+              - quantity
+              - max-order
       requestBody:
         required: true
         content:
@@ -301,9 +303,17 @@ components:
         categoryId:
           type: integer
           format: int64
+          description: ID of the category
         subCategoryId:
           type: integer
           format: int64
+          description: ID of the sub-category
+        quantityInStock:
+          type: integer
+          description: Quantity in stock
+        maxOrder:
+          type: integer
+          description: Max items that a customer can order
       required:
         - title
 
@@ -401,6 +411,20 @@ components:
           format: double
           description: Comparable Price
           nullable: true
+        categoryId:
+          type: integer
+          format: int64
+          description: ID of the category
+        subCategoryId:
+          type: integer
+          format: int64
+          description: ID of the sub-category
+        quantityInStock:
+          type: integer
+          description: Quantity in stock
+        maxOrder:
+          type: integer
+          description: Max items that a customer can order
         currency:
           type: string
           description: Product's country
@@ -465,6 +489,20 @@ components:
         visible:
           type: boolean
           description: is the product visible
+        categoryId:
+          type: integer
+          format: int64
+          description: ID of the category
+        subCategoryId:
+          type: integer
+          format: int64
+          description: ID of the sub-category
+        quantityInStock:
+          type: integer
+          description: Quantity in stock
+        maxOrder:
+          type: integer
+          description: Max items that a customer can order
         created:
           type: string
           format: date-time
