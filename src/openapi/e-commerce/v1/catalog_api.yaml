@@ -316,8 +316,15 @@ components:
           type: integer
           description: Max items that a customer can order
           nullable: true
+        type:
+          type: string
+          description: Type of product
+          enum:
+            - PHYSISCAL
+            - NUMERIC
       required:
         - title
+        - type
 
     CreateProductResponse:
       type: object
@@ -429,6 +436,12 @@ components:
           type: integer
           description: Max items that a customer can order
           nullable: true
+        type:
+          type: string
+          description: Type of product
+          enum:
+            - PHYSISCAL
+            - NUMERIC
         currency:
           type: string
           description: Product's country
@@ -509,6 +522,12 @@ components:
           type: integer
           description: Max items that a customer can order
           nullable: true
+        type:
+          type: string
+          description: Type of product
+          enum:
+            - PHYSISCAL
+            - NUMERIC
         created:
           type: string
           format: date-time
