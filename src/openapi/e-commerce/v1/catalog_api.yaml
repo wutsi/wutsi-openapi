@@ -311,7 +311,7 @@ components:
         quantity:
           type: integer
           description: Quantity in stock
-          nullable: true
+          minimum: 0
         maxOrder:
           type: integer
           description: Max items that a customer can order
@@ -431,7 +431,6 @@ components:
         quantity:
           type: integer
           description: Quantity in stock
-          nullable: true
         maxOrder:
           type: integer
           description: Max items that a customer can order
@@ -517,7 +516,6 @@ components:
         quantity:
           type: integer
           description: Quantity in stock
-          nullable: true
         maxOrder:
           type: integer
           description: Max items that a customer can order
