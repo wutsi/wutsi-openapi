@@ -82,10 +82,6 @@ components:
           type: integer
           format: int64
           description: ID of the customer
-        reservationId:
-          type: integer
-          format: int64
-          description: ID of the reservation
         total:
           type: number
           format: double

@@ -656,11 +656,7 @@ components:
     CreateReservationRequest:
       type: object
       properties:
-        merchantId:
-          type: integer
-          format: int64
-          description: ID of the merchant
-        customerId:
+        orderId:
           type: integer
           format: int64
           description: ID of the customer
