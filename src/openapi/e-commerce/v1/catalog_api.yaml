@@ -266,6 +266,31 @@ paths:
       security:
         - api_key: [ 'catalog-manage' ]
 
+  /v1/reservations:
+    post:
+      operationId: "create-reservation"
+      description: Reserve product for purchase
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateReservationRequest'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateReservationResponse'
+        403:
+          description: The caller is not the owner of the product
+        404:
+          description: The product not found
+      tags:
+        - Product
+      security:
+        - api_key: [ 'catalog-manage' ]
 
 components:
   securitySchemes:
@@ -615,3 +640,40 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/CategorySummary"
+
+
+    ReservationProduct:
+      type: object
+      properties:
+        productId:
+          type: integer
+          format: int64
+          description: ID of the product
+        quantity:
+          type: integer
+          description: Quantity of product to reserve
+
+    CreateReservationRequest:
+      type: object
+      properties:
+        merchantId:
+          type: integer
+          format: int64
+          description: ID of the merchant
+        customerId:
+          type: integer
+          format: int64
+          description: ID of the customer
+        products:
+          type: array
+          items:
+            $ref: "#/components/schemas/ReservationProduct"
+          description: products to reserve
+
+    CreateReservationResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ID of the reservation

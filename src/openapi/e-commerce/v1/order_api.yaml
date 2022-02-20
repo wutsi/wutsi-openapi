@@ -1,0 +1,105 @@
+openapi: "3.0.0"
+info:
+  title: "Wutsi Order API"
+  description: API for managing orders
+  version: "1.0.0"
+
+servers:
+  - url: https://wutsi-order-server-test.herokuapp.com
+    description: Sandbox
+  - url: https://wutsi-order-server-prod.herokuapp.com
+    description: Production
+
+paths:
+  /v1/orders:
+    post:
+      operationId: "create-order"
+      description: Create an order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrderRequest'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateOrderResponse'
+        403:
+          description: The caller is not authorized to call this endpoint
+        409:
+          description: Error
+      tags:
+        - Category
+      security:
+        - api_key: [ 'order-manage' ]
+
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: Authorization
+
+  schemas:
+    OrderOffer:
+      type: object
+      properties:
+        offerId:
+          type: integer
+          format: int64
+          description: ID of the merchant
+        offerType:
+          type: string
+          enum:
+            - PRODUCT
+            - DELIVERY
+            - COUPON
+          description: Type of item
+        title:
+          type: string
+          description: Title of the offer
+          maxLength: 160
+        unitPrice:
+          type: number
+          format: double
+          description: Offer unit price
+        currency:
+          type: string
+          description: Currency
+
+    CreateOrderRequest:
+      type: object
+      properties:
+        merchantId:
+          type: integer
+          format: int64
+          description: ID of the merchant
+        customerId:
+          type: integer
+          format: int64
+          description: ID of the customer
+        reservationId:
+          type: integer
+          format: int64
+          description: ID of the reservation
+        total:
+          type: number
+          format: double
+          description: Total amount
+        offers:
+          type: array
+          items:
+            $ref: "#/components/schemas/OrderOffer"
+          description: Offers in the product
+
+    CreateOrderResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ID of the order created
