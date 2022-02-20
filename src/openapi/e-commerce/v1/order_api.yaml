@@ -33,7 +33,35 @@ paths:
         409:
           description: Error
       tags:
-        - Category
+        - Order
+      security:
+        - api_key: [ 'order-manage' ]
+
+  /v1/orders/{id}:
+    post:
+      operationId: "get-order"
+      description: Get an order
+      parameters:
+        - in: path
+          name: id
+          description: ID of the category
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetOrderResponse'
+        403:
+          description: The caller is not authorized to call this endpoint
+        409:
+          description: Error
+      tags:
+        - Order
       security:
         - api_key: [ 'order-manage' ]
 
@@ -45,31 +73,21 @@ components:
       name: Authorization
 
   schemas:
-    OrderOffer:
+    CreateOrderItem:
       type: object
       properties:
         offerId:
           type: integer
           format: int64
-          description: ID of the merchant
+          description: ID of offer
         offerType:
           type: string
           enum:
             - PRODUCT
-            - DELIVERY
-            - COUPON
-          description: Type of item
-        title:
-          type: string
-          description: Title of the offer
-          maxLength: 160
-        unitPrice:
-          type: number
-          format: double
-          description: Offer unit price
-        currency:
-          type: string
-          description: Currency
+          description: Type of offer
+        quantity:
+          type: integer
+          description: Number of offers
 
     CreateOrderRequest:
       type: object
@@ -78,19 +96,19 @@ components:
           type: integer
           format: int64
           description: ID of the merchant
-        customerId:
+        accountId:
           type: integer
           format: int64
           description: ID of the customer
         total:
           type: number
           format: double
-          description: Total amount
-        offers:
+          description: Total amount of the offer. This is the amount that will be charged to the customer
+        items:
           type: array
           items:
-            $ref: "#/components/schemas/OrderOffer"
-          description: Offers in the product
+            $ref: "#/components/schemas/CreateOrderItem"
+          description: Items of order
 
     CreateOrderResponse:
       type: object
@@ -99,3 +117,63 @@ components:
           type: integer
           format: int64
           description: ID of the order created
+
+
+    OrderItem:
+      type: object
+      properties:
+        itemId:
+          type: integer
+          format: int64
+          description: ID of offer associated with the item
+        itemType:
+          type: string
+          enum:
+            - PRODUCT
+          description: Type of offer
+        quantity:
+          type: integer
+          description: Number of offers
+        unitPrice:
+          type: number
+          format: decimal
+          description: Unit price
+        totalPrice:
+          type: number
+          format: decimal
+          description: Unit price
+
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ID of the order
+        merchantId:
+          type: integer
+          format: int64
+          description: ID of the merchant
+        accountId:
+          type: integer
+          format: int64
+          description: ID of the customer
+        status:
+          type: string
+          description: Description of teh order
+        totalPrice:
+          type: number
+          format: double
+          description: Total amount of the offer. This is the amount that will be charged to the customer
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/OrderItem"
+          description: Offers in the product
+
+    GetOrderResponse:
+      type: object
+      properties:
+        id:
+          type: object
+          $ref: "#/components/schemas/Order"
