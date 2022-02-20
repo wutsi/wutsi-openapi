@@ -73,18 +73,13 @@ components:
       name: Authorization
 
   schemas:
-    CreateOrderItem:
+    OrderProductItem:
       type: object
       properties:
-        offerId:
+        productId:
           type: integer
           format: int64
           description: ID of offer
-        offerType:
-          type: string
-          enum:
-            - PRODUCT
-          description: Type of offer
         quantity:
           type: integer
           description: Number of offers
@@ -104,10 +99,10 @@ components:
           type: number
           format: double
           description: Total amount of the offer. This is the amount that will be charged to the customer
-        items:
+        products:
           type: array
           items:
-            $ref: "#/components/schemas/CreateOrderItem"
+            $ref: "#/components/schemas/OrderProductItem"
           description: Items of order
 
     CreateOrderResponse:
