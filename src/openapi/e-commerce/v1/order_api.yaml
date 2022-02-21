@@ -73,17 +73,6 @@ components:
       name: Authorization
 
   schemas:
-    Product:
-      type: object
-      properties:
-        productId:
-          type: integer
-          format: int64
-          description: ID of offer
-        quantity:
-          type: integer
-          description: Number of offers
-
     CreateOrderRequest:
       type: object
       properties:
@@ -91,10 +80,10 @@ components:
           type: integer
           format: int64
           description: ID of the merchant
-        products:
+        items:
           type: array
           items:
-            $ref: "#/components/schemas/Product"
+            $ref: "#/components/schemas/OrderItem"
           description: Items of order
 
     CreateOrderResponse:
@@ -104,7 +93,6 @@ components:
           type: integer
           format: int64
           description: ID of the order created
-
 
     OrderItem:
       type: object
