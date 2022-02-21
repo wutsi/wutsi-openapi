@@ -73,7 +73,7 @@ components:
       name: Authorization
 
   schemas:
-    OrderProductItem:
+    Product:
       type: object
       properties:
         productId:
@@ -91,18 +91,10 @@ components:
           type: integer
           format: int64
           description: ID of the merchant
-        accountId:
-          type: integer
-          format: int64
-          description: ID of the customer
-        total:
-          type: number
-          format: double
-          description: Total amount of the offer. This is the amount that will be charged to the customer
         products:
           type: array
           items:
-            $ref: "#/components/schemas/OrderProductItem"
+            $ref: "#/components/schemas/Product"
           description: Items of order
 
     CreateOrderResponse:
