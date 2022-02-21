@@ -165,6 +165,6 @@ components:
     GetOrderResponse:
       type: object
       properties:
-        id:
+        order:
           type: object
           $ref: "#/components/schemas/Order"
