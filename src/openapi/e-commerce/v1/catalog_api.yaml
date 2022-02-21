@@ -653,9 +653,9 @@ components:
       type: object
       properties:
         orderId:
-          type: integer
-          format: int64
-          description: ID of the customer
+          type: string
+          format: uuid
+          description: ID of the Order
         products:
           type: array
           items:
