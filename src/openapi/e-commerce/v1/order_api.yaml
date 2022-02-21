@@ -153,6 +153,14 @@ components:
           items:
             $ref: "#/components/schemas/OrderItem"
           description: Offers in the product
+        created:
+          type: string
+          format: date-time
+          description: Creation datetime
+        updated:
+          type: string
+          format: date-time
+          description: Last update
 
     GetOrderResponse:
       type: object
