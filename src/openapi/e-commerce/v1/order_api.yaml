@@ -164,6 +164,11 @@ components:
           type: integer
           format: int64
           description: ID of the customer
+        reservationId:
+          type: integer
+          format: int64
+          description: ID of the reservation associated with Order
+          nullable: true
         status:
           type: string
           description: Description of teh order
