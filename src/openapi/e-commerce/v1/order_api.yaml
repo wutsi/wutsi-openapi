@@ -63,7 +63,7 @@ paths:
       tags:
         - Order
       security:
-        - api_key: [ 'order-manage' ]
+        - api_key: [ 'order-read' ]
 
 components:
   securitySchemes:
