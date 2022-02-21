@@ -116,6 +116,12 @@ components:
           format: decimal
           description: Unit price
           minimum: 1
+        currency:
+          type: string
+          description: currency
+      required:
+        - title
+        - currency
 
     Order:
       type: object
