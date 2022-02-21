@@ -289,7 +289,7 @@ paths:
         - api_key: [ 'catalog-manage' ]
 
   /v1/reservations/{id}:
-    post:
+    delete:
       operationId: "cancel-reservation"
       description: Cancel a reservation
       parameters:
