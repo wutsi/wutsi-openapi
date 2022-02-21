@@ -141,10 +141,13 @@ components:
         status:
           type: string
           description: Description of teh order
-        totalPrice:
+        total:
           type: number
           format: double
-          description: Total amount of the offer. This is the amount that will be charged to the customer
+          description: Amount
+        currency:
+          type: string
+          description: Currency
         items:
           type: array
           items:
