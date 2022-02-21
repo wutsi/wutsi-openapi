@@ -113,10 +113,9 @@ components:
           type: number
           format: decimal
           description: Unit price
-        totalPrice:
-          type: number
-          format: decimal
-          description: Unit price
+        currency:
+          type: string
+          description: Currency
 
     Order:
       type: object
