@@ -85,6 +85,8 @@ components:
           items:
             $ref: "#/components/schemas/OrderItem"
           description: Items of order
+      required:
+        - items
 
     CreateOrderResponse:
       type: object
@@ -113,6 +115,7 @@ components:
           type: number
           format: decimal
           description: Unit price
+          minimum: 1
 
     Order:
       type: object
