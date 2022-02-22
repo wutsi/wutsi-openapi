@@ -181,6 +181,10 @@ components:
           type: number
           format: double
           description: Sub Total, which is the total price of the products.
+        deliveryFees:
+          type: number
+          format: double
+          description: Delivery fees
         savingsAmount:
           type: number
           format: double
