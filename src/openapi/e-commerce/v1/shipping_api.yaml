@@ -68,6 +68,14 @@ paths:
     post:
       operationId: "update-shipping"
       description: Update a shipping method
+      parameters:
+        - in: path
+          name: id
+          description: ID of the shipping
+          required: true
+          schema:
+            type: integer
+            format: int64
       requestBody:
         required: true
         content:
