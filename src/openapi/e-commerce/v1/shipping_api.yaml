@@ -1,0 +1,290 @@
+openapi: "3.0.0"
+info:
+  title: "Wutsi Shipping API"
+  description: API for managing shipping
+  version: "1.0.0"
+
+servers:
+  - url: https://wutsi-shipping-server-test.herokuapp.com
+    description: Sandbox
+  - url: https://wutsi-shipping-server-prod.herokuapp.com
+    description: Production
+
+paths:
+  /v1/shippings:
+    post:
+      operationId: "create-shipping"
+      description: Create an shipping
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateShippingRequest'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateShippingResponse'
+        403:
+          description: The caller is not authorized to call this endpoint
+        409:
+          description: Error
+      tags:
+        - Shipping
+      security:
+        - api_key: [ 'shipping-manage' ]
+
+  /v1/shippings/{id}:
+    get:
+      operationId: "get-shipping"
+      description: Get an shipping
+      parameters:
+        - in: path
+          name: id
+          description: ID of the shipping
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetShippingResponse'
+        403:
+          description: The caller is not authorized to call this endpoint
+        409:
+          description: Error
+      tags:
+        - Shipping
+      security:
+        - api_key: [ 'shipping-read' ]
+
+  /v1/shippings/{id}/costs:
+    post:
+      operationId: "add-cost"
+      description: Add cost
+      parameters:
+        - in: path
+          name: id
+          description: ID of the shipping
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddShippingCost'
+      responses:
+        200:
+          description: Success
+        403:
+          description: The caller is not authorized to call this endpoint
+        409:
+          description: Error
+      tags:
+        - Shipping
+      security:
+        - api_key: [ 'shipping-manage' ]
+
+  /v1/shippings/search:
+    post:
+      operationId: "search-shipping"
+      description: Search Shippings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchShippingRequest'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchShippingResponse'
+        403:
+          description: The caller is not authorized to call this endpoint
+      tags:
+        - Product
+      security:
+        - api_key: [ 'shipping-read' ]
+
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: Authorization
+
+  schemas:
+    ProcessingTime:
+      type: object
+      properties:
+        min:
+          type: integer
+        max:
+          type: integer
+        unit:
+          type: string
+          enum:
+            - HOUR
+            - DAY
+            - WEEK
+
+    CreateShippingRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Title of the shipping method
+        processingTime:
+          type: object
+          $ref: "#/components/schemas/ProcessingTime"
+        shippingOrigin:
+          type: string
+          description: Country of origin of the shipping
+          nullable: true
+        message:
+          type: string
+          description: Message to display to the customer in CKO page
+
+    CreateShippingResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ID of the shipping created
+
+    AddShippingCost:
+      type: object
+      properties:
+        country:
+          type: string
+          description: Coutry code
+          nullable: true
+        locationId:
+          type: integer
+          format: int64
+          description: ID of the location
+          nullable: true
+        cost:
+          type: number
+          format: double
+          description: Shipping cost
+
+
+    ShippingCost:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ID of the shipping cost
+        country:
+          type: string
+          description: Coutry code
+          nullable: true
+        locationId:
+          type: integer
+          format: int64
+          description: ID of the location
+          nullable: true
+        cost:
+          type: number
+          format: double
+          description: Shipping cost
+
+    Shipping:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ID of the shipping method
+        accountId:
+          type: integer
+          format: int64
+          description: ID of the merchant
+        title:
+          type: string
+          description: Title of the shipping method
+        processingTime:
+          type: object
+          $ref: "#/components/schemas/ProcessingTime"
+        shippingOrigin:
+          type: string
+          description: Country of origin of the shipping
+          nullable: true
+        message:
+          type: string
+          description: Message to display to the customer in CKO page
+        costs:
+          type: array
+          items:
+            $ref: "#/components/schemas/ShippingCost"
+
+    GetShippingResponse:
+      type: object
+      properties:
+        id:
+          type: object
+          $ref: "#/components/schemas/Shipping"
+
+
+    ShippingSummary:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ID of the shipping method
+        title:
+          type: string
+          description: Title of the shipping method
+        processingTime:
+          type: object
+          $ref: "#/components/schemas/ProcessingTime"
+        shippingOrigin:
+          type: string
+          description: Country of origin of the shipping
+          nullable: true
+        message:
+          type: string
+          description: Message to display to the customer in CKO page
+
+    SearchShippingRequest:
+      type: object
+      properties:
+        country:
+          type: string
+          description: Coutry code
+          nullable: true
+        locationId:
+          type: integer
+          format: int64
+          description: ID of the location
+          nullable: true
+        limit:
+          type: integer
+          default: 30
+        offset:
+          type: integer
+          default: 0
+
+    SearchShippingResponse:
+      type: object
+      properties:
+        shippings:
+          type: object
+          $ref: "#/components/schemas/ShippingSummary"
