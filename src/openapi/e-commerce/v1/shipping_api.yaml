@@ -287,8 +287,9 @@ components:
       type: object
       properties:
         shippings:
-          type: object
-          $ref: "#/components/schemas/ShippingSummary"
+          type: array
+          items:
+            $ref: "#/components/schemas/ShippingSummary"
 
     AddShippingCost:
       type: object
