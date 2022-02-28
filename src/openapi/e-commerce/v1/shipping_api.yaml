@@ -128,7 +128,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AddShippingCost'
+              $ref: '#/components/schemas/AddShippingCostRequest'
       responses:
         200:
           description: Success
@@ -141,29 +141,29 @@ paths:
       security:
         - api_key: [ 'shipping-manage' ]
 
-  /v1/shippings/search:
+  /v1/shippings/costs/{id}:
     post:
-      operationId: "search-shipping"
-      description: Search Shippings
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SearchShippingRequest'
+      operationId: "delete-cost"
+      description: Add cost
+      parameters:
+        - in: path
+          name: id
+          description: ID of the cost
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         200:
           description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListShippingResponse'
         403:
           description: The caller is not authorized to call this endpoint
+        409:
+          description: Error
       tags:
-        - Product
+        - Shipping
       security:
-        - api_key: [ 'shipping-read' ]
+        - api_key: [ 'shipping-manage' ]
 
 components:
   securitySchemes:
@@ -217,16 +217,18 @@ components:
         country:
           type: string
           description: Coutry code
-          nullable: true
         locationId:
           type: integer
           format: int64
           description: ID of the location
           nullable: true
-        cost:
+        primaryCost:
           type: number
           format: double
           description: Shipping cost
+        additionalCost:
+          type: number
+          format: double
 
     Shipping:
       type: object
@@ -253,6 +255,10 @@ components:
         enabled:
           type: boolean
           description: Enabled or Disabled
+        costs:
+          type: array
+          items:
+            $ref: "#/components/schemas/ShippingCost"
 
     GetShippingResponse:
       type: object
@@ -291,19 +297,21 @@ components:
           items:
             $ref: "#/components/schemas/ShippingSummary"
 
-    AddShippingCost:
+    AddShippingCostRequest:
       type: object
       properties:
         country:
           type: string
           description: Coutry code
-          nullable: true
-        locationId:
+        cityId:
           type: integer
           format: int64
           description: ID of the location
           nullable: true
-        cost:
+        primaryCost:
           type: number
           format: double
           description: Shipping cost
+        additionalCost:
+          type: number
+          format: double
