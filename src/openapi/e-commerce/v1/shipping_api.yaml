@@ -161,6 +161,7 @@ components:
         message:
           type: string
           description: Message to display to customer
+          nullable: true
 
     CreateShippingResponse:
       type: object
@@ -173,25 +174,10 @@ components:
     UpdateShippingRequest:
       type: object
       properties:
-        delayMin:
-          type: integer
-          description: Delay min
-          nullable: true
-        delayMax:
-          type: integer
-          description: Delay max
-          nullable: true
-        delayUnit:
-          type: string
-          enum:
-            - MINUTES
-            - HOURS
-            - DAYS
-            - WEEKS
-          nullable: true
         message:
           type: string
           description: Message to display to customer
+          nullable: true
         enabled:
           type: boolean
           description: Enabled or Disabled
@@ -235,23 +221,10 @@ components:
             - LOCAL_DELIVERY
             - EMAIL_DELIVERY
           description: Type of delivery
-        delayMin:
-          type: integer
-          description: Delay min
-          nullable: true
-        delayMax:
-          type: integer
-          description: Delay max
-        delayUnit:
-          type: string
-          enum:
-            - MINUTES
-            - HOURS
-            - DAYS
-            - WEEKS
         message:
           type: string
           description: Message to display to customer
+          nullable: true
         enabled:
           type: boolean
           description: Enabled or Disabled
@@ -281,20 +254,6 @@ components:
             - LOCAL_DELIVERY
             - EMAIL_DELIVERY
           description: Type of delivery
-        delayMin:
-          type: integer
-          description: Delay min
-          nullable: true
-        delayMax:
-          type: integer
-          description: Delay max
-        delayUnit:
-          type: string
-          enum:
-            - MINUTES
-            - HOURS
-            - DAYS
-            - WEEKS
         message:
           type: string
           description: Message to display to customer
