@@ -180,6 +180,7 @@ components:
         delayMax:
           type: integer
           description: Delay max
+          nullable: true
         delayUnit:
           type: string
           enum:
@@ -187,6 +188,7 @@ components:
             - HOURS
             - DAYS
             - WEEKS
+          nullable: true
         message:
           type: string
           description: Message to display to customer
