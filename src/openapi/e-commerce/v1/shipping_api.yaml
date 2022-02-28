@@ -12,6 +12,23 @@ servers:
 
 paths:
   /v1/shippings:
+    get:
+      operationId: "list-shipping"
+      description: Return all shipping methods
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListShippingResponse'
+        403:
+          description: The caller is not authorized to call this endpoint
+      tags:
+        - Product
+      security:
+        - api_key: [ 'shipping-read' ]
+
     post:
       operationId: "create-shipping"
       description: Create an shipping
@@ -140,7 +157,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SearchShippingResponse'
+                $ref: '#/components/schemas/ListShippingResponse'
         403:
           description: The caller is not authorized to call this endpoint
       tags:
@@ -266,21 +283,7 @@ components:
           type: boolean
           description: Enabled or Disabled
 
-    SearchShippingRequest:
-      type: object
-      properties:
-        accountId:
-          type: integer
-          format: int64
-          description: ID of the account
-        limit:
-          type: integer
-          default: 30
-        offset:
-          type: integer
-          default: 0
-
-    SearchShippingResponse:
+    ListShippingResponse:
       type: object
       properties:
         shippings:
