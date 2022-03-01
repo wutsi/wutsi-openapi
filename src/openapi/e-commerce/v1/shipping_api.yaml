@@ -260,7 +260,7 @@ components:
     GetShippingResponse:
       type: object
       properties:
-        id:
+        shipping:
           type: object
           $ref: "#/components/schemas/Shipping"
 
