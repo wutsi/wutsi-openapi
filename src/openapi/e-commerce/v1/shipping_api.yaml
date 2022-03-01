@@ -104,7 +104,8 @@ paths:
             enum:
               - enabled
               - message
-              - default-rate
+              - rate
+              - delivery-time
       requestBody:
         required: true
         content:
@@ -253,13 +254,15 @@ components:
         enabled:
           type: boolean
           description: Enabled or Disabled
-        defaultRate:
+        rate:
           type: number
           format: double
           description: Detault Rate
+          nullable: true
         deliveryTime:
           type: integer
           description: Delivery Time in hours
+          nullable: true
         rates:
           type: array
           items:
@@ -323,3 +326,7 @@ components:
           type: number
           format: double
           description: Shipping rate
+        deliveryTime:
+          type: integer
+          description: Delivery Time in hours
+          nullable: true
