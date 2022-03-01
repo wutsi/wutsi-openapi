@@ -298,6 +298,15 @@ components:
         enabled:
           type: boolean
           description: Enabled or Disabled
+        rate:
+          type: number
+          format: double
+          description: Detault Rate
+          nullable: true
+        deliveryTime:
+          type: integer
+          description: Delivery Time in hours
+          nullable: true
 
     ListShippingResponse:
       type: object
@@ -326,7 +335,3 @@ components:
           type: number
           format: double
           description: Shipping rate
-        deliveryTime:
-          type: integer
-          description: Delivery Time in hours
-          nullable: true
