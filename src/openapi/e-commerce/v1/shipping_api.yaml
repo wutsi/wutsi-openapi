@@ -111,10 +111,10 @@ paths:
       security:
         - api_key: [ 'shipping-manage' ]
 
-  /v1/shippings/{id}/costs:
+  /v1/rates:
     post:
-      operationId: "save-cost"
-      description: Save shipping costs
+      operationId: "save-rate"
+      description: Save shipping rate
       parameters:
         - in: path
           name: id
@@ -128,7 +128,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SaveShippingCostRequest'
+              $ref: '#/components/schemas/SaveRateRequest'
       responses:
         200:
           description: Success
@@ -141,14 +141,14 @@ paths:
       security:
         - api_key: [ 'shipping-manage' ]
 
-  /v1/shippings/costs/{id}:
+  /v1/rates/{id}:
     post:
-      operationId: "delete-cost"
-      description: Add cost
+      operationId: "delete-rate"
+      description: Delete a rate
       parameters:
         - in: path
           name: id
-          description: ID of the cost
+          description: ID of the rate
           required: true
           schema:
             type: integer
@@ -207,13 +207,13 @@ components:
           type: boolean
           description: Enabled or Disabled
 
-    ShippingCost:
+    Rate:
       type: object
       properties:
         id:
           type: integer
           format: int64
-          description: ID of the shipping cost
+          description: ID of the shipping rate
         country:
           type: string
           description: Coutry code
@@ -222,13 +222,10 @@ components:
           format: int64
           description: ID of the location
           nullable: true
-        primaryCost:
+        amount:
           type: number
           format: double
-          description: Shipping cost
-        additionalCost:
-          type: number
-          format: double
+          description: rate amount
 
     Shipping:
       type: object
@@ -255,10 +252,10 @@ components:
         enabled:
           type: boolean
           description: Enabled or Disabled
-        costs:
+        rates:
           type: array
           items:
-            $ref: "#/components/schemas/ShippingCost"
+            $ref: "#/components/schemas/Rate"
 
     GetShippingResponse:
       type: object
@@ -297,7 +294,7 @@ components:
           items:
             $ref: "#/components/schemas/ShippingSummary"
 
-    SaveShippingCostRequest:
+    SaveRateRequest:
       type: object
       properties:
         country:
@@ -308,10 +305,7 @@ components:
           format: int64
           description: ID of the location
           nullable: true
-        primaryCost:
+        amount:
           type: number
           format: double
-          description: Shipping cost
-        additionalCost:
-          type: number
-          format: double
+          description: Shipping rate
