@@ -104,6 +104,7 @@ paths:
             enum:
               - enabled
               - message
+              - default-rate
       requestBody:
         required: true
         content:
@@ -252,10 +253,15 @@ components:
         enabled:
           type: boolean
           description: Enabled or Disabled
+        defaultRate:
+          type: number
+          format: double
+          description: Detault Rate
         rates:
           type: array
           items:
             $ref: "#/components/schemas/Rate"
+          description: Other rate per region
 
     GetShippingResponse:
       type: object
