@@ -113,8 +113,8 @@ paths:
 
   /v1/shippings/{id}/costs:
     post:
-      operationId: "add-cost"
-      description: Add cost
+      operationId: "save-cost"
+      description: Save shipping costs
       parameters:
         - in: path
           name: id
@@ -128,7 +128,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AddShippingCostRequest'
+              $ref: '#/components/schemas/SaveShippingCostRequest'
       responses:
         200:
           description: Success
@@ -217,7 +217,7 @@ components:
         country:
           type: string
           description: Coutry code
-        locationId:
+        cityId:
           type: integer
           format: int64
           description: ID of the location
@@ -297,7 +297,7 @@ components:
           items:
             $ref: "#/components/schemas/ShippingSummary"
 
-    AddShippingCostRequest:
+    SaveShippingCostRequest:
       type: object
       properties:
         country:
