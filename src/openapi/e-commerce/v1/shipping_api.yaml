@@ -297,6 +297,10 @@ components:
     SaveRateRequest:
       type: object
       properties:
+        shippingId:
+          type: integer
+          format: int64
+          description: ID of the shipping
         country:
           type: string
           description: Coutry code
