@@ -134,7 +134,7 @@ paths:
         - api_key: [ 'shipping-manage' ]
 
   /v1/rates/{id}:
-    post:
+    delete:
       operationId: "delete-rate"
       description: Delete a rate
       parameters:
