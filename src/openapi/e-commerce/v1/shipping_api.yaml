@@ -83,9 +83,9 @@ paths:
         - api_key: [ 'shipping-read' ]
 
 
-  /v1/shippings/{id}/attributes{name}:
+  /v1/shippings/{id}/attributes/{name}:
     post:
-      operationId: "update-shipping"
+      operationId: "update-shipping-attribute"
       description: Update a shipping method
       parameters:
         - in: path
