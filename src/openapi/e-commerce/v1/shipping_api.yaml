@@ -115,14 +115,6 @@ paths:
     post:
       operationId: "save-rate"
       description: Save shipping rate
-      parameters:
-        - in: path
-          name: id
-          description: ID of the shipping
-          required: true
-          schema:
-            type: integer
-            format: int64
       requestBody:
         required: true
         content:
