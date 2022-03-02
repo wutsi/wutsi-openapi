@@ -237,6 +237,13 @@ components:
           type: integer
           description: Delivery Time in hours
           nullable: true
+        country:
+          type: string
+        cityId:
+          type: integer
+          format: int64
+          description: ID of the location
+          nullable: true
 
 
     GetShippingResponse:
@@ -278,6 +285,13 @@ components:
         deliveryTime:
           type: integer
           description: Delivery Time in hours
+          nullable: true
+        country:
+          type: string
+        cityId:
+          type: integer
+          format: int64
+          description: ID of the location
           nullable: true
 
     ListShippingResponse:
