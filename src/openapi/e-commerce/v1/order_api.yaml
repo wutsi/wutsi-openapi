@@ -37,6 +37,30 @@ paths:
       security:
         - api_key: [ 'order-manage' ]
 
+  /v1/orders/search:
+    post:
+      operationId: "search-orders"
+      description: Search Orders
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchOrderRequest'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchOrderResponse'
+        403:
+          description: The caller is not authorized to call this endpoint
+      tags:
+        - Product
+      security:
+        - api_key: [ 'order-read' ]
+
   /v1/orders/{id}:
     get:
       operationId: "get-order"
@@ -88,29 +112,33 @@ paths:
       security:
         - api_key: [ 'order-manage' ]
 
-  /v1/orders/search:
+  /v1/orders/{id}/shipping:
     post:
-      operationId: "search-orders"
-      description: Search Orders
+      operationId: "save-shipping"
+      description: Save shipping information
+      parameters:
+        - in: path
+          name: id
+          description: ID of the category
+          required: true
+          schema:
+            type: string
+            format: uuid
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SearchOrderRequest'
+              $ref: '#/components/schemas/SaveShippingRequest'
       responses:
         200:
           description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SearchOrderResponse'
         403:
           description: The caller is not authorized to call this endpoint
       tags:
         - Product
       security:
-        - api_key: [ 'order-read' ]
+        - api_key: [ 'order-manage' ]
 
 components:
   securitySchemes:
@@ -348,7 +376,7 @@ components:
           items:
             $ref: "#/components/schemas/OrderSummary"
 
-    CreateShippingRequest:
+    SaveShippingRequest:
       type: object
       properties:
         shippingId:
