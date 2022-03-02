@@ -336,7 +336,7 @@ components:
     SearchRateResponse:
       type: object
       properties:
-        shippings:
+        rates:
           type: array
           items:
             $ref: "#/components/schemas/RateSummary"
