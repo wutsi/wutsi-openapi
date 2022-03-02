@@ -315,7 +315,6 @@ components:
       properties:
         country:
           type: string
-          nullable: true
         cityId:
           type: integer
           format: int64
