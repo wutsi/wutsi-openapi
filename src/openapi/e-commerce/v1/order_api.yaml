@@ -238,6 +238,9 @@ components:
           format: date-time
           description: Cancellation date-time
           nullable: true
+        shipping:
+          type: object
+          $ref: "#/components/schemas/Shipping"
 
     GetOrderResponse:
       type: object
@@ -344,3 +347,73 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/OrderSummary"
+
+    CreateShippingRequest:
+      type: object
+      properties:
+        shippingId:
+          type: integer
+          format: int64
+          description: ID of the shipping method
+        firstName:
+          type: string
+          description: Customer First Name
+        lastName:
+          type: string
+          description: Customer Last Name
+        street:
+          type: string
+          description: Street address
+          nullable: true
+        cityId:
+          type: integer
+          format: int64
+          description: ID of the city
+          nullable: true
+        country:
+          type: string
+          description: Country code
+        zipCode:
+          type: string
+          description: ZIP code
+          nullable: true
+        email:
+          type: string
+          format: email
+          description: Email address
+          nullable: true
+
+    Shipping:
+      type: object
+      properties:
+        shippingId:
+          type: integer
+          format: int64
+          description: ID of the shipping method
+        firstName:
+          type: string
+          description: Customer First Name
+        lastName:
+          type: string
+          description: Customer Last Name
+        street:
+          type: string
+          description: Street address
+          nullable: true
+        cityId:
+          type: integer
+          format: int64
+          description: ID of the city
+          nullable: true
+        country:
+          type: string
+          description: Country
+        zipCode:
+          type: string
+          description: ZIP code
+          nullable: true
+        email:
+          type: string
+          format: email
+          description: Email address
+          nullable: true
