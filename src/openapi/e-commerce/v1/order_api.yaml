@@ -168,6 +168,26 @@ paths:
       security:
         - api_key: [ 'order-manage' ]
 
+  /v1/addresses:
+    get:
+      operationId: "list-addresses"
+      description: List the addresses of the current user
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAddressResponse'
+        403:
+          description: The caller is not authorized to call this endpoint
+        409:
+          description: Error
+      tags:
+        - Order
+      security:
+        - api_key: [ 'order-read' ]
+
 components:
   securitySchemes:
     api_key:
@@ -486,3 +506,12 @@ components:
           type: number
           format: double
           description: Shipping Fees
+
+    ListAddressResponse:
+      type: object
+      properties:
+        addresses:
+          type: array
+          items:
+            $ref: "#/components/schemas/Address"
+
