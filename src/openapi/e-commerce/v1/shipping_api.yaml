@@ -223,6 +223,9 @@ components:
           format: double
           description: Detault Rate
           nullable: true
+        currency:
+          type: string
+          description: Currency
         deliveryTime:
           type: integer
           description: Delivery Time in hours
@@ -263,6 +266,9 @@ components:
           format: double
           description: Detault Rate
           nullable: true
+        currency:
+          type: string
+          description: Currency
         deliveryTime:
           type: integer
           description: Delivery Time in hours
@@ -275,26 +281,6 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/ShippingSummary"
-
-    SaveRateRequest:
-      type: object
-      properties:
-        shippingId:
-          type: integer
-          format: int64
-          description: ID of the shipping
-        country:
-          type: string
-          description: Coutry code
-        cityId:
-          type: integer
-          format: int64
-          description: ID of the location
-          nullable: true
-        amount:
-          type: number
-          format: double
-          description: Shipping rate
 
 
     Product:
@@ -352,7 +338,9 @@ components:
           type: number
           format: double
           description: Detault Rate
-          nullable: true
+        currency:
+          type: string
+          description: Currency
         deliveryTime:
           type: integer
           description: Delivery Time in hours
