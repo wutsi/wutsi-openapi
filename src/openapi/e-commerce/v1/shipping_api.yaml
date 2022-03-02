@@ -105,6 +105,8 @@ paths:
               - message
               - rate
               - delivery-time
+              - country
+              - city-id
       requestBody:
         required: true
         content:
@@ -168,9 +170,15 @@ components:
           enum:
             - LOCAL_PICKUP
             - LOCAL_DELIVERY
-            - INTERNATIONAL_DELIVERY
             - EMAIL_DELIVERY
           description: Type of delivery
+        country:
+          type: string
+        cityId:
+          type: integer
+          format: int64
+          description: ID of the location
+          nullable: true
         message:
           type: string
           description: Message to display to customer
@@ -208,7 +216,6 @@ components:
           enum:
             - LOCAL_PICKUP
             - LOCAL_DELIVERY
-            - INTERNATIONAL_DELIVERY
             - EMAIL_DELIVERY
           description: Type of delivery
         message:
@@ -255,7 +262,6 @@ components:
           enum:
             - LOCAL_PICKUP
             - LOCAL_DELIVERY
-            - INTERNATIONAL_DELIVERY
             - EMAIL_DELIVERY
           description: Type of delivery
         enabled:
@@ -331,7 +337,6 @@ components:
           enum:
             - LOCAL_PICKUP
             - LOCAL_DELIVERY
-            - INTERNATIONAL_DELIVERY
             - EMAIL_DELIVERY
           description: Type of delivery
         rate:
