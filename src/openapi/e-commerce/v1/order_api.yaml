@@ -507,6 +507,16 @@ components:
           type: integer
           format: int64
           description: ID of the shipping method
+        country:
+          type: string
+          description: Delivery country
+        cityId:
+          type: integer
+          format: int64
+          description: Delivery city
+          nullable: true
+      required:
+        - country
 
     ListAddressResponse:
       type: object
