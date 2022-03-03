@@ -506,6 +506,10 @@ components:
           type: number
           format: double
           description: Shipping Fees
+        deliveryTime:
+          type: integer
+          description: Delivery delay in hour
+          nullable: true
 
     ListAddressResponse:
       type: object
