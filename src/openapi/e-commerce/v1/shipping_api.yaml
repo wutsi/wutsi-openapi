@@ -321,6 +321,10 @@ components:
     SearchRateRequest:
       type: object
       properties:
+        shippingId:
+          type: integer
+          format: int64
+          nullable: true
         country:
           type: string
         cityId:
@@ -332,6 +336,9 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Product"
+      required:
+        - country
+        - products
 
     SearchRateResponse:
       type: object
