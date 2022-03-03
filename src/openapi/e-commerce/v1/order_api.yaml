@@ -475,7 +475,11 @@ components:
         id:
           type: integer
           format: int64
-          description: Address ID
+          description: |
+            ID of the address:
+            - If not `null`, the address associated with this ID will be associated with the order
+            - If `null`, a new address will be created and associated with the order
+          nullable: true
         firstName:
           type: string
           description: Customer First Name
