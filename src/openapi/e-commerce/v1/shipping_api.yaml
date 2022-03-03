@@ -325,6 +325,9 @@ components:
           type: integer
           format: int64
           nullable: true
+        accountId:
+          type: integer
+          format: int64
         country:
           type: string
         cityId:

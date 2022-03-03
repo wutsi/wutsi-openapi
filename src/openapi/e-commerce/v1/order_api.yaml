@@ -362,6 +362,7 @@ components:
         shippingAddress:
           type: object
           $ref: "#/components/schemas/Address"
+          nullable: true
 
     GetOrderResponse:
       type: object
