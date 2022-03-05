@@ -553,7 +553,7 @@ components:
             - TRANSFER
           description: Type of transaction
           nullable: true
-        statuses:
+        status:
           type: array
           items:
             type: string
