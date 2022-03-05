@@ -553,10 +553,11 @@ components:
             - TRANSFER
           description: Type of transaction
           nullable: true
-        status:
-          type: string
+        statuses:
+          type: array
+          items:
+            type: string
           description: Status of the transaction
-          nullable: true
         orderId:
           type: string
           description: Order ID
