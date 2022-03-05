@@ -147,7 +147,7 @@ components:
           type: boolean
           description: Transaction to retailler?
           nullable: true
-        toBusinees:
+        toBusiness:
           type: boolean
           description: Transaction to a business?
           nullable: true
