@@ -51,25 +51,40 @@ components:
     PushTrackRequest:
       type: object
       properties:
+        track:
+          type: object
+          $ref: "#/components/schemas/Track"
+
+    Track:
+      type: object
+      properties:
         time:
           type: integer
           format: int64
-          description: "Time when the tracking event occured"
-        duid:
+          description: "Time when the tracking event occurred"
+        tenantId:
+          type: string
+          nullable: true
+          description: "ID of the Tenant where the event was fired"
+        correlationId:
+          type: string
+          format: uuid
+          nullable: true
+          description: "ID that groups event"
+        deviceId:
           type: string
           format: uuid
           nullable: true
           description: "Device unique identifier"
-        uid:
+        accountId:
           type: string
           nullable: true
           description: "User identifier"
-        hid:
+        merchantId:
           type: string
-          format: uuid
           nullable: true
-          description: "Hit unique identifier"
-        pid:
+          description: "Account identifier"
+        productId:
           type: string
           nullable: true
           description: "Identifier of the product associated with the event"
@@ -103,19 +118,15 @@ components:
           nullable: true
           description: "Name of the event"
         value:
-          type: string
+          type: number
+          format: double
           nullable: true
           description: "Value associated with the event"
         url:
           type: string
           nullable: true
           description: "URL where the event was fired"
-        tenantid:
-          type: string
-          nullable: true
-          description: "ID of the Tenant where the event was fired"
         impressions:
           type: string
           nullable: true
           description: "ID if the products printed with this event, separated by |"
-
