@@ -349,6 +349,10 @@ components:
           format: double
           description: Amout to transfer to the user's wallet
           minimum: 0
+        currency:
+          type: string
+          format: double
+          description: Currency code
         paymentMethodToken:
           type: string
           description: Token of the payment method
