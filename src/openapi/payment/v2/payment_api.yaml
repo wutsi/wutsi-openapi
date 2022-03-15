@@ -361,6 +361,10 @@ components:
           type: number
           format: double
           description: Fees amount
+        gatewayFees:
+          type: number
+          format: double
+          description: Gateway Fees amount
         applyToSender:
           type: boolean
           description: Are the fees should be apply to the sender?
