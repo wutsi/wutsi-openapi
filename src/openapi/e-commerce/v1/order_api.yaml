@@ -312,6 +312,9 @@ components:
         status:
           type: string
           description: Description of teh order
+        paymentStatus:
+          type: string
+          description: Status of the payment
         subTotalPrice:
           type: number
           format: double
@@ -324,6 +327,10 @@ components:
           type: number
           format: double
           description: Total price to charge to the customer
+        totalPaid:
+          type: number
+          format: double
+          description: Total amount paid by the customer
         currency:
           type: string
           description: Currency
@@ -394,6 +401,9 @@ components:
         status:
           type: string
           description: Status of the order
+        paymentStatus:
+          type: string
+          description: Status of the payment
         subTotalPrice:
           type: number
           format: double
