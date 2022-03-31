@@ -187,7 +187,7 @@ paths:
         - api_key: [ 'catalog-manage' ]
 
     delete:
-      operationId: "remove-to-section"
+      operationId: "remove-from-section"
       description: Remove a product from a section
       parameters:
         - in: path
@@ -915,7 +915,7 @@ components:
     GetSectionResponse:
       type: object
       properties:
-        id:
+        section:
           type: object
           $ref: "#/components/schemas/Section"
 
