@@ -862,7 +862,7 @@ components:
         title:
           type: string
           description: Title of the section
-        rank:
+        sortOrder:
           type: integer
           description: sort order
         productCount:
@@ -903,7 +903,7 @@ components:
         title:
           type: string
           description: Title of the section
-        rank:
+        sortOrder:
           type: integer
           description: sort order
         productCount:
