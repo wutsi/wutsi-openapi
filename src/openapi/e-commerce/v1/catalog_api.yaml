@@ -760,6 +760,10 @@ components:
           format: url
           description: For numeric product, this represent the URL of the associated file
           nullable: true
+        sections:
+          type: array
+          items:
+            $ref: "#/components/schemas/Section"
 
     AddPictureRequest:
       type: object
