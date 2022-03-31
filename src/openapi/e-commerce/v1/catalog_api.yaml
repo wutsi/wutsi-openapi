@@ -136,10 +136,17 @@ paths:
       security:
         - api_key: [ 'catalog-read' ]
 
-
     post:
       operationId: "update-section"
       description: Update a section
+      parameters:
+        - in: path
+          name: id
+          description: ID of the section
+          required: true
+          schema:
+            type: integer
+            format: int64
       requestBody:
         required: true
         content:
