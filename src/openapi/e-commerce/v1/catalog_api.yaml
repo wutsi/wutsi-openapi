@@ -170,7 +170,7 @@ paths:
             type: integer
             format: int64
         - in: path
-          name: id
+          name: product-id
           description: ID of the product
           required: true
           schema:
@@ -198,7 +198,7 @@ paths:
             type: integer
             format: int64
         - in: path
-          name: id
+          name: product-id
           description: ID of the product
           required: true
           schema:
@@ -884,6 +884,8 @@ components:
         title:
           type: string
           description: Title of the section
+      required:
+        - title
 
     CreateSectionResponse:
       type: object
@@ -926,4 +928,6 @@ components:
         rank:
           type: integer
           description: sort order
+      required:
+        - title
 
