@@ -770,7 +770,7 @@ components:
         sections:
           type: array
           items:
-            $ref: "#/components/schemas/Section"
+            $ref: "#/components/schemas/SectionSummary"
 
     AddPictureRequest:
       type: object
