@@ -878,6 +878,9 @@ components:
           nullable: true
         productCount:
           type: integer
+          description: Number of products in this category
+        publishedProductCount:
+          type: integer
           description: Number of published products in this category
 
     GetCategoryResponse:
@@ -902,6 +905,9 @@ components:
           description: ID of the parent category
           nullable: true
         productCount:
+          type: integer
+          description: Number of products in this category
+        publishedProductCount:
           type: integer
           description: Number of published products in this category
 
@@ -969,7 +975,10 @@ components:
           description: sort order
         productCount:
           type: integer
-          description: Number of published products in this section
+          description: Number of products in this section
+        publishedProductCount:
+          type: integer
+          description: Number of published products in this sections
 
     ListSectionResponse:
       type: object
@@ -1012,7 +1021,10 @@ components:
           description: sort order
         productCount:
           type: integer
-          description: Number of published products in this section
+          description: Number of products in this section
+        publishedProductCount:
+          type: integer
+          description: Number of published products in this sections
 
     GetSectionResponse:
       type: object
