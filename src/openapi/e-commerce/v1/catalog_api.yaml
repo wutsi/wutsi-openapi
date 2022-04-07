@@ -733,6 +733,10 @@ components:
           type: string
           format: date-time
           description: Last modification Date/Time
+        published:
+          type: string
+          format: date-time
+          description: Published modification Date/Time
         status:
           type: string
           enum:
@@ -834,6 +838,10 @@ components:
           enum:
             - DRAFT
             - PUBLISHED
+        published:
+          type: string
+          format: date-time
+          description: Published modification Date/Time
 
     AddPictureRequest:
       type: object
