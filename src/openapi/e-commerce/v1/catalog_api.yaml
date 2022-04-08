@@ -737,6 +737,7 @@ components:
           type: string
           format: date-time
           description: Published modification Date/Time
+          nullable: true
         status:
           type: string
           enum:
@@ -842,7 +843,7 @@ components:
           type: string
           format: date-time
           description: Published modification Date/Time
-
+          nullable: true
     AddPictureRequest:
       type: object
       properties:
