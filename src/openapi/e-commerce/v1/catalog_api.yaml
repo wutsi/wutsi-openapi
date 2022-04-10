@@ -72,7 +72,7 @@ paths:
       operationId: "list-sections"
       description: Return all the sections of a catalog
       parameters:
-        - in: path
+        - in: query
           name: account-id
           description: ID of the owner of the sections
           required: true
