@@ -75,10 +75,10 @@ paths:
         - in: path
           name: account-id
           description: ID of the owner of the sections
+          required: true
           schema:
             type: integer
             format: int64
-            nullable: true
       responses:
         200:
           description: Success
