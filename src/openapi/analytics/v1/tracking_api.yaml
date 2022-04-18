@@ -132,10 +132,9 @@ components:
         deviceType:
           type: string
           enum:
-            - DESKTOP
-            - TABLET
             - MOBILE
-            - TV
+            - DESKTOP
+            - APP
           nullable: true
           description: "Type of device"
         impressions:
