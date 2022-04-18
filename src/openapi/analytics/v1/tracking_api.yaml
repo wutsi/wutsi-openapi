@@ -129,7 +129,7 @@ components:
           type: string
           nullable: true
           description: "URL where the event was fired"
-        device:
+        deviceType:
           type: string
           enum:
             - DESKTOP
