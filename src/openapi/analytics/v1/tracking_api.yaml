@@ -33,6 +33,28 @@ paths:
       tags:
         - Tracking
 
+  /v1/stats/products/search:
+    post:
+      operationId: "search-product-stats"
+      summary: "Search Product Statistics"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchProductStatRequest'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchProductStatResponse'
+      security:
+        - api_key: [ 'tracking-read' ]
+      tags:
+        - Tracking
+
 components:
   securitySchemes:
     api_key:
@@ -141,3 +163,32 @@ components:
           type: string
           nullable: true
           description: "ID if the products printed with this event, separated by |"
+
+    SearchProductStatRequest:
+      type: object
+      properties:
+        productIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+
+    SearchProductStatResponse:
+      type: object
+      properties:
+        stats:
+          type: object
+          $ref: "#/components/schemas/ProductStat"
+
+    ProductStat:
+      type: object
+      properties:
+        productId:
+          type: integer
+          format: int64
+        viewCount:
+          type: integer
+        chatCount:
+          type: integer
+        shareCount:
+          type: integer
