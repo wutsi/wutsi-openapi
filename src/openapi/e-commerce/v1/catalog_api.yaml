@@ -656,6 +656,8 @@ components:
         offset:
           type: integer
           default: 0
+        ranker:
+          type: string
 
     SearchProductResponse:
       type: object
