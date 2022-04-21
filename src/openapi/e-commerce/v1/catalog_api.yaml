@@ -860,6 +860,13 @@ components:
           format: date-time
           description: Published modification Date/Time
           nullable: true
+        overallMetrics:
+          type: object
+          $ref: "#/components/schemas/Metrics"
+
+    Metrics:
+      type: object
+      properties:
         totalViews:
           type: integer
           format: int64
@@ -878,6 +885,7 @@ components:
         score:
           type: number
           format: double
+
     AddPictureRequest:
       type: object
       properties:
