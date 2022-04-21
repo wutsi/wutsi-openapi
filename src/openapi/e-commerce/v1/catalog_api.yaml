@@ -658,6 +658,12 @@ components:
           default: 0
         ranker:
           type: string
+          enum:
+            - RECOMMENDED
+            - PRICE_DESC
+            - PRICE_ASC
+            - VIEWS
+          nullable: true
 
     SearchProductResponse:
       type: object
