@@ -656,7 +656,7 @@ components:
         offset:
           type: integer
           default: 0
-        ranker:
+        sortBy:
           type: string
           enum:
             - RECOMMENDED
