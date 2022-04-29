@@ -275,7 +275,10 @@ components:
         product:
           type: object
           $ref: "#/components/schemas/Product"
-
+        toggles:
+          type: array
+          items:
+            type: string
 
     GetTenantResponse:
       type: object
