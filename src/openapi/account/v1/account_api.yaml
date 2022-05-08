@@ -182,7 +182,7 @@ paths:
               - email
               - facebook-id
               - instagram-id
-              - telegram-id
+              - twitter-id
       requestBody:
         required: true
         content:
