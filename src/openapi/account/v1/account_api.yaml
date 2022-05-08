@@ -892,12 +892,15 @@ components:
         facebookId:
           type: string
           description: Facebook identifier
+          nullable: true
         instagramId:
           type: string
           description: Instagram identifier
+          nullable: true
         telegramId:
           type: string
           description: Telegram identifier
+          nullable: true
     Phone:
       type: object
       properties:
