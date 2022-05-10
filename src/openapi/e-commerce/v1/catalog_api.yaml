@@ -609,7 +609,6 @@ components:
       required:
         - title
         - type
-        - keywords
 
     CreateProductResponse:
       type: object
