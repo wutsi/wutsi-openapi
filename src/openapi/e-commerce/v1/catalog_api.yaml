@@ -852,6 +852,10 @@ components:
           format: date-time
           description: Published modification Date/Time
           nullable: true
+        keywords:
+          type: string
+          description: Product keywords - important for search
+          nullable: true
         overallMetrics:
           type: object
           $ref: "#/components/schemas/Metrics"
