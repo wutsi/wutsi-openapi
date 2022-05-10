@@ -1,0 +1,39 @@
+openapi: "3.0.0"
+info:
+  title: "Wutsi Catalog API"
+  description: API for accessing product fees
+  version: "1.0.0"
+
+servers:
+  - url: https://wutsi-feed-server-test.herokuapp.com
+    description: Sandbox
+  - url: https://wutsi-feed-server-prod.herokuapp.com
+    description: Production
+
+paths:
+  /v1/feeds/{account-id}/facebook:
+    get:
+      operationId: "facebook"
+      description: Search product categories
+      parameters:
+        - in: path
+          name: account-id
+          description: ID of the owner of the feed
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Success
+          content:
+            text/csv:
+              schema:
+                type:
+                  string
+        403:
+          description: The caller is not authorized to call this endpoint
+        409:
+          description: Error
+      tags:
+        - Feed
