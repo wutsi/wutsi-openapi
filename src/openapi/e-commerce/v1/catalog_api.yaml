@@ -430,6 +430,7 @@ paths:
               - max-order
               - type
               - numeric-file-url
+              - keywords
       requestBody:
         required: true
         content:
@@ -601,9 +602,13 @@ components:
           enum:
             - PHYSISCAL
             - NUMERIC
+        keywords:
+          type: string
+          description: product keywords
       required:
         - title
         - type
+        - keywords
 
     CreateProductResponse:
       type: object
