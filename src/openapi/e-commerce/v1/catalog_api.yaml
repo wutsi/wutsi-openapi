@@ -605,6 +605,7 @@ components:
         keywords:
           type: string
           description: product keywords
+          nullable: true
       required:
         - title
         - type
