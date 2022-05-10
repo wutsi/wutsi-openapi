@@ -430,7 +430,6 @@ paths:
               - max-order
               - type
               - numeric-file-url
-              - keywords
       requestBody:
         required: true
         content:
@@ -602,10 +601,6 @@ components:
           enum:
             - PHYSISCAL
             - NUMERIC
-        keywords:
-          type: string
-          description: product keywords
-          nullable: true
       required:
         - title
         - type
@@ -856,10 +851,6 @@ components:
           type: string
           format: date-time
           description: Published modification Date/Time
-          nullable: true
-        keywords:
-          type: string
-          description: Product keywords - important for search
           nullable: true
         overallMetrics:
           type: object
