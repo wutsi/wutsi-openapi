@@ -641,6 +641,13 @@ components:
         offset:
           type: integer
           default: 0
+        sortBy:
+          type: string
+          enum:
+            - RECOMMENDED
+            - NAME
+            - VIEWS
+          nullable: true
 
     SearchAccountResponse:
       type: object
