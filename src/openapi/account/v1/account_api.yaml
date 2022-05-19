@@ -631,6 +631,10 @@ components:
           description: |
             Phone number in the [E164](https://en.wikipedia.org/wiki/E.164) format
           nullable: true
+        business:
+          type: boolean
+          description: Filter business account
+          nullable: true
         limit:
           type: integer
           default: 30
