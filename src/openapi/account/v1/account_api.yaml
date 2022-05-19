@@ -901,6 +901,10 @@ components:
           type: string
           description: Twitter identifier
           nullable: true
+        overallMetrics:
+          type: object
+          $ref: "#/components/schemas/Metrics"
+
     Phone:
       type: object
       properties:
@@ -1065,3 +1069,25 @@ components:
         category:
           type: object
           $ref: "#/components/schemas/Category"
+
+    Metrics:
+      type: object
+      properties:
+        totalViews:
+          type: integer
+          format: int64
+        totalChats:
+          type: integer
+          format: int64
+        totalShares:
+          type: integer
+          format: int64
+        totalOrders:
+          type: integer
+          format: int64
+        conversion:
+          type: number
+          format: double
+        score:
+          type: number
+          format: double
