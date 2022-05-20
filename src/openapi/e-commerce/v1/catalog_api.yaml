@@ -877,6 +877,9 @@ components:
         score:
           type: number
           format: double
+        totalSales:
+          type: number
+          format: doublee
 
     AddPictureRequest:
       type: object
