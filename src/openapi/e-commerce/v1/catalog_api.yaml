@@ -879,7 +879,7 @@ components:
           format: double
         totalSales:
           type: number
-          format: doublee
+          format: int64
 
     AddPictureRequest:
       type: object
