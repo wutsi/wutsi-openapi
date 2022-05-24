@@ -192,6 +192,34 @@ paths:
       security:
         - api_key: [ 'order-manage' ]
 
+  /v1/orders/{id}/status:
+    post:
+      operationId: "change-status"
+      description: Change an order status
+      parameters:
+        - in: path
+          name: id
+          description: ID of the order
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangeStatusRequest'
+      responses:
+        200:
+          description: Success
+        403:
+          description: The caller is not authorized to call this endpoint
+      tags:
+        - Order
+      security:
+        - api_key: [ 'order-manage' ]
+
   /v1/addresses:
     get:
       operationId: "list-addresses"
@@ -563,3 +591,12 @@ components:
           items:
             $ref: "#/components/schemas/Address"
 
+    ChangeStatusRequest:
+      type: object
+      properties:
+        status:
+          type: string
+          description: New status
+        comment:
+          type: string
+          description: Comment
