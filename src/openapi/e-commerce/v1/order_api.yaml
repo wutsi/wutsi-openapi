@@ -597,6 +597,9 @@ components:
         status:
           type: string
           description: New status
+        reason:
+          type: string
+          description: Reason of the change
         comment:
           type: string
           description: Comment
