@@ -352,11 +352,6 @@ components:
           type: string
           format: date-time
           description: Last update
-        cancelled:
-          type: string
-          format: date-time
-          description: Cancellation date-time
-          nullable: true
         shippingId:
           type: integer
           format: int64
@@ -440,11 +435,6 @@ components:
           type: string
           format: date-time
           description: Last update
-        cancelled:
-          type: string
-          format: date-time
-          description: Cancellation date-time
-          nullable: true
 
     SearchOrderRequest:
       type: object
