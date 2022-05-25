@@ -553,6 +553,8 @@ components:
         reason:
           type: string
           description: Reason of the change
+          nullable: true
         comment:
           type: string
           description: Comment
+          nullable: true
