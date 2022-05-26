@@ -493,14 +493,6 @@ components:
         orderId:
           type: string
           description: ID of order
-        merchantId:
-          type: integer
-          format: int64
-          description: ID of the merchant
-        shippingId:
-          type: integer
-          format: int64
-          description: ID of the shipping method
       required:
         - orderId
 
@@ -553,10 +545,9 @@ components:
           type: integer
           format: int64
           description: ID of the merchant
-        shippingId:
-          type: integer
-          format: int64
-          description: ID of the shipping method
         status:
           type: string
           description: Status of the shipping-order
+        shipping:
+          type: object
+          $ref: "#/components/schemas/Shipping"
