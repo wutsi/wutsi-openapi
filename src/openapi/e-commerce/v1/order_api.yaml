@@ -529,6 +529,10 @@ components:
           type: number
           format: double
           description: Delivery fees
+        deliveryTime:
+          type: integer
+          description: Delivery Time in hours
+          nullable: true
 
     ListAddressResponse:
       type: object
