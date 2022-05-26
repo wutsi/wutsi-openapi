@@ -523,7 +523,7 @@ components:
     GetShippingOrderResponse:
       type: object
       properties:
-        status:
+        shippingOrder:
           type: object
           $ref: "#/components/schemas/ShippingOrder"
 
