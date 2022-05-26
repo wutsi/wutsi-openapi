@@ -537,7 +537,7 @@ components:
         orderId:
           type: string
           description: ID of order
-        carrierId:
+        accountId:
           type: integer
           format: int64
           description: ID of the carrier
