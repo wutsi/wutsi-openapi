@@ -508,8 +508,7 @@ components:
       type: object
       properties:
         status:
-          type: integer
-          format: int64
+          type: string
           description: New status
         reason:
           type: string
