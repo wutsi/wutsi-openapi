@@ -537,10 +537,6 @@ components:
         orderId:
           type: string
           description: ID of order
-        accountId:
-          type: integer
-          format: int64
-          description: ID of the carrier
         merchantId:
           type: integer
           format: int64
