@@ -398,6 +398,10 @@ components:
           type: object
           $ref: "#/components/schemas/Address"
           nullable: true
+        shippingOrderId:
+          type: integer
+          format: int64
+          description: ID of the shipping order
 
     GetOrderResponse:
       type: object
