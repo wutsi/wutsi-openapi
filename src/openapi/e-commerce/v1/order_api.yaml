@@ -402,6 +402,7 @@ components:
           type: integer
           format: int64
           description: ID of the shipping order
+          nullable: true
 
     GetOrderResponse:
       type: object
