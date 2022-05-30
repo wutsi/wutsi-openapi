@@ -1069,12 +1069,6 @@ components:
         sortOrder:
           type: integer
           description: sort order
-        productCount:
-          type: integer
-          description: Number of products in this section
-        publishedProductCount:
-          type: integer
-          description: Number of published products in this sections
 
     ListSectionResponse:
       type: object
@@ -1115,12 +1109,6 @@ components:
         sortOrder:
           type: integer
           description: sort order
-        productCount:
-          type: integer
-          description: Number of products in this section
-        publishedProductCount:
-          type: integer
-          description: Number of published products in this sections
 
     GetSectionResponse:
       type: object
