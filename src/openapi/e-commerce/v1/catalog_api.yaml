@@ -1175,7 +1175,7 @@ components:
           format: int64
           description: ID of the city where is located the merchant
           nullable: true
-        metrics:
+        overallMetrics:
           type: object
           $ref: "#/components/schemas/Metrics"
 
