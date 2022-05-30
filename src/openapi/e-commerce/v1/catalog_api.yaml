@@ -1186,9 +1186,3 @@ components:
           format: int64
           description: ID of the city where is located the merchant
           nullable: true
-        productCount:
-          type: integer
-          description: Number of products in this category
-        publishedProductCount:
-          type: integer
-          description: Number of published products in this category
