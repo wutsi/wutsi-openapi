@@ -1182,6 +1182,15 @@ components:
     SearchMerchantRequest:
       type: object
       properties:
+        cityId:
+          type: integer
+          format: int64
+          description: ID of the city where is located the merchant
+          nullable: true
+        withPublishedProducts:
+          type: boolean
+          description: if TRUE, only merchant having published products will be returned
+          nullable: true
         limit:
           type: integer
           default: 30
