@@ -545,6 +545,31 @@ paths:
       security:
         - api_key: [ 'catalog-manage' ]
 
+  /v1/merchant/search:
+    post:
+      operationId: "search-merchants"
+      description: Search Merchant
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchMerchantRequest'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchMerchantResponse'
+        403:
+          description: The caller is not authorized to call this endpoint
+      tags:
+        - Product
+      security:
+        - api_key: [ 'catalog-read' ]
+
+
 components:
   securitySchemes:
     api_key:
@@ -1102,3 +1127,68 @@ components:
       required:
         - title
 
+    GetMerchantResponse:
+      type: object
+      properties:
+        merchant:
+          type: object
+          $ref: "#/components/schemas/Merchant"
+
+    Merchant:
+      type: object
+      properties:
+        accountId:
+          type: integer
+          format: int64
+          description: ID of the merchant account
+        enabled:
+          type: boolean
+          description: is the merchant account enabled or not
+        cityId:
+          type: integer
+          format: int64
+          description: ID of the city where is located the merchant
+          nullable: true
+        metrics:
+          type: object
+          $ref: "#/components/schemas/Metrics"
+
+    SearchMerchantRequest:
+      type: object
+      properties:
+        limit:
+          type: integer
+          default: 30
+        offset:
+          type: integer
+          default: 0
+
+    SearchMerchantResponse:
+      type: object
+      properties:
+        merchants:
+          type: array
+          items:
+            $ref: "#/components/schemas/MerchantSummary"
+
+    MerchantSummary:
+      type: object
+      properties:
+        accountId:
+          type: integer
+          format: int64
+          description: ID of the merchant account
+        enabled:
+          type: boolean
+          description: is the merchant account enabled or not
+        cityId:
+          type: integer
+          format: int64
+          description: ID of the city where is located the merchant
+          nullable: true
+        productCount:
+          type: integer
+          description: Number of products in this category
+        publishedProductCount:
+          type: integer
+          description: Number of published products in this category
