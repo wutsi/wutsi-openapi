@@ -545,10 +545,36 @@ paths:
       security:
         - api_key: [ 'catalog-manage' ]
 
-  /v1/merchant/search:
+  /v1/merchants/search:
     post:
       operationId: "search-merchants"
       description: Search Merchant
+      parameters:
+        - in: path
+          name: id
+          description: ID of the merchant
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchMerchantResponse'
+        403:
+          description: The caller is not authorized to call this endpoint
+      tags:
+        - Product
+      security:
+        - api_key: [ 'catalog-read' ]
+
+  /v1/merchants/{id}:
+    post:
+      operationId: "get-merchant"
+      description: Get a Merchant
       requestBody:
         required: true
         content:
@@ -561,7 +587,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SearchMerchantResponse'
+                $ref: '#/components/schemas/GetMerchantResponse'
         403:
           description: The caller is not authorized to call this endpoint
       tags:
