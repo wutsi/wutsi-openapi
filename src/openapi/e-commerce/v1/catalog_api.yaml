@@ -570,7 +570,7 @@ paths:
         - api_key: [ 'catalog-read' ]
 
   /v1/merchants/{id}:
-    post:
+    get:
       operationId: "get-merchant"
       description: Get a Merchant
       parameters:
