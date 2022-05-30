@@ -549,14 +549,12 @@ paths:
     post:
       operationId: "search-merchants"
       description: Search Merchant
-      parameters:
-        - in: path
-          name: id
-          description: ID of the merchant
-          required: true
-          schema:
-            type: integer
-            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchMerchantRequest'
       responses:
         200:
           description: Success
@@ -575,12 +573,14 @@ paths:
     post:
       operationId: "get-merchant"
       description: Get a Merchant
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SearchMerchantRequest'
+      parameters:
+        - in: path
+          name: id
+          description: ID of the merchant
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         200:
           description: Success
@@ -1170,9 +1170,6 @@ components:
           type: integer
           format: int64
           description: ID of the merchant account
-        enabled:
-          type: boolean
-          description: is the merchant account enabled or not
         cityId:
           type: integer
           format: int64
@@ -1210,9 +1207,6 @@ components:
           type: integer
           format: int64
           description: ID of the merchant account
-        enabled:
-          type: boolean
-          description: is the merchant account enabled or not
         cityId:
           type: integer
           format: int64
