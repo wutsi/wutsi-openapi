@@ -734,6 +734,10 @@ components:
         paymentMethodToken:
           type: string
           description: Token of account from where money will be debitted.
+        recipientId:
+          type: integer
+          format: int64
+          description: ID of the recipient of the charge
         amount:
           type: number
           format: double
