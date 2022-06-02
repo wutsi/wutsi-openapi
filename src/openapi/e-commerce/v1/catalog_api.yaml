@@ -79,6 +79,13 @@ paths:
           schema:
             type: integer
             format: int64
+        - in: query
+          name: with-published-products
+          description: Return only section with published products?
+          required: false
+          schema:
+            type: boolean
+            nullable: true
       responses:
         200:
           description: Success
