@@ -213,6 +213,10 @@ components:
           type: string
           format: date-time
           description: Creation Date/Time
+        updated:
+          type: string
+          format: date-time
+          description: Last modification Date/Time
 
     GetCartResponse:
       type: object
@@ -282,3 +286,7 @@ components:
           type: string
           format: date-time
           description: Creation Date/Time
+        updated:
+          type: string
+          format: date-time
+          description: Last modification Date/Time
