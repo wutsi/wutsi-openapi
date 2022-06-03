@@ -139,10 +139,6 @@ components:
             - TRANSFER
             - CHARGE
           description: Type of transaction
-        threshold:
-          type: number
-          format: double
-          description: Fees threshold
         amount:
           type: number
           format: double
