@@ -541,40 +541,6 @@ components:
           type: object
           $ref: "#/components/schemas/Transaction"
 
-    CreatePaymentRequestRequest:
-      type: object
-      properties:
-        amount:
-          type: number
-          format: double
-          description: Amount requested
-          minimum: 0
-        currency:
-          type: string
-          description: Currency code
-        description:
-          type: string
-          description: Description of the transaction
-          nullable: true
-          maxLength: 100
-        orderId:
-          type: string
-          description: ID of the order associated with the payment
-          nullable: true
-          maxLength: 36
-        timeToLive:
-          type: integer
-          description: Life span of this request in seconds. Customer must honor this request within this duration
-          nullable: true
-
-    CreatePaymentRequestResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          description: ID of the payment request
-
     PaymentRequest:
       type: object
       properties:
