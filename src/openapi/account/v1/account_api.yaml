@@ -171,7 +171,6 @@ paths:
               - language
               - country
               - is-transfer-secured
-              - business
               - biography
               - website
               - category-id
@@ -264,6 +263,57 @@ paths:
       security:
         - api_key: [ 'user-read' ]
 
+
+  /v1/accounts/{id}/business:
+    post:
+      operationId: "enable-business"
+      description: Switch account to business account
+      parameters:
+        - in: path
+          name: id
+          description: ID of the account
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnableBusinessRequest'
+      responses:
+        200:
+          description: Success
+        403:
+          description: The caller is not the owner of the account
+        404:
+          description: The account not found
+      tags:
+        - Account
+      security:
+        - api_key: [ 'user-manage' ]
+
+    delete:
+      operationId: "disable-business"
+      description: Switch account to personal account
+      parameters:
+        - in: path
+          name: id
+          description: ID of the account
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Success
+        403:
+          description: The caller is not the owner of the account
+      tags:
+        - Account
+      security:
+        - api_key: [ 'user-manage' ]
 
   /v1/accounts/{id}/business-hours:
     post:
@@ -1091,3 +1141,27 @@ components:
         category:
           type: object
           $ref: "#/components/schemas/Category"
+
+    EnableBusinessRequest:
+      type: object
+      properties:
+        categoryId:
+          type: number
+          format: int64
+          nullable: true
+          description: ID of the business category
+        cityId:
+          type: number
+          format: int64
+          nullable: true
+          description: ID of the city
+        biography:
+          type: string
+          nullable: true
+        whatsapp:
+          type: string
+          description: Whatsapp phone number to use to contact the user
+          nullable: true
+      required:
+        - categoryId
+        - cityId
