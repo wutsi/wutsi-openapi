@@ -1145,6 +1145,10 @@ components:
     EnableBusinessRequest:
       type: object
       properties:
+        displayName:
+          type: string
+          description: Account's display name
+          maxLength: 50
         categoryId:
           type: number
           format: int64
@@ -1163,5 +1167,6 @@ components:
           description: Whatsapp phone number to use to contact the user
           nullable: true
       required:
+        - displayName
         - categoryId
         - cityId
