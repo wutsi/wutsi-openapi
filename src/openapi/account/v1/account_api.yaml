@@ -1155,19 +1155,17 @@ components:
           nullable: true
           description: ID of the business category
         country:
-          type: number
-          format: int64
-          description: ID of the city
+          type: string
+          description: Country code
         cityId:
           type: number
           format: int64
           nullable: true
           description: ID of the city
-        address:
-          type: number
-          format: int64
+        street:
+          type: string
           nullable: true
-          description: ID of the city
+          description: Street
         biography:
           type: string
           nullable: true
@@ -1180,4 +1178,3 @@ components:
         - categoryId
         - cityId
         - country
-        - address
