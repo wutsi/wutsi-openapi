@@ -154,7 +154,7 @@ components:
         paymentMethodType:
           type: string
           nullable: true
-          default: Type of payment method
+          description: Type of payment method
 
     Product:
       type: object
