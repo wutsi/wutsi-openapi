@@ -209,13 +209,9 @@ components:
           type: string
           description: 3 letter currency code
           maxLength: 3
-        idempotencyKey:
-          type: string
-          description: Idemportent Key
       required:
         - paymentMethodToken
         - currency
-        - idempotencyKey
 
     CreateCashinResponse:
       type: object
@@ -246,13 +242,9 @@ components:
           type: string
           description: 3 letter currency code
           maxLength: 3
-        idempotencyKey:
-          type: string
-          description: Idemportent Key
       required:
         - paymentMethodToken
         - currency
-        - idempotencyKey
 
     CreateCashoutResponse:
       type: object
@@ -288,12 +280,8 @@ components:
           type: string
           description: Description of the transfer
           nullable: true
-        idempotencyKey:
-          type: string
-          description: Idemportent Key
       required:
         - currency
-        - idempotencyKey
 
     CreateTransferResponse:
       type: object
