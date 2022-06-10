@@ -129,7 +129,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ComputeFeesRequest'
+                $ref: '#/components/schemas/ComputeFeesResponse'
         409:
           description: The operation failed
       tags:
