@@ -699,6 +699,13 @@ components:
     ComputeFeesResponse:
       type: object
       properties:
+        fee:
+          type: object
+          $ref: "#/components/schemas/TransactionFee"
+
+    TransactionFee:
+      type: object
+      properties:
         amount:
           type: number
           format: double
