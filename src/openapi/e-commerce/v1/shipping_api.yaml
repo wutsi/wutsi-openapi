@@ -226,7 +226,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ChangeDeliveryStatusRequest'
+              $ref: '#/components/schemas/ChangeStatusRequest'
       responses:
         200:
           description: Success
@@ -555,15 +555,9 @@ components:
           $ref: "#/components/schemas/Shipping"
 
 
-    ChangeDeliveryStatusRequest:
+    ChangeStatusRequest:
       type: object
       properties:
-        carrierName:
-          type: string
-          nullable: true
-        trackingNumber:
-          type: string
-          nullable: true
         status:
           type: string
           enum:
