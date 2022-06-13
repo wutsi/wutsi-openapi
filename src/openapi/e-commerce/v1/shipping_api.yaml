@@ -498,10 +498,6 @@ components:
         orderId:
           type: integer
           format: int64
-        trackingNumber:
-          type: string
-          nullable: true
-          maxLength: 30
         comment:
           type: string
           nullable: true
@@ -531,12 +527,6 @@ components:
         orderId:
           type: integer
           format: int64
-        carrierName:
-          type: string
-          nullable: true
-        trackingNumber:
-          type: string
-          nullable: true
         status:
           type: string
           enum:
@@ -544,6 +534,9 @@ components:
             - IN_TRANSIT
             - DELIVERED
             - CANCELLED
+        comment:
+          type: string
+          nullable: true
         created:
           type: string
           format: date-time
