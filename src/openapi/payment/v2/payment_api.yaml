@@ -649,7 +649,6 @@ components:
           type: string
           description: Idemportent Key
       required:
-        - paymentMethodToken
         - currency
         - idempotencyKey
 
