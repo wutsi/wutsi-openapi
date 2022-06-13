@@ -498,12 +498,14 @@ components:
         orderId:
           type: integer
           format: int64
-        carrierName:
-          type: string
-          nullable: true
         trackingNumber:
           type: string
           nullable: true
+          maxLength: 30
+        comment:
+          type: string
+          nullable: true
+          maxLength: 160
 
     CreateDeliveryResponse:
       type: object
