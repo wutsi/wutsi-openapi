@@ -181,7 +181,7 @@ paths:
       security:
         - api_key: [ 'shipping-manage' ]
 
-  /v1/deliveries/{0}:
+  /v1/deliveries/{id}:
     get:
       operationId: "get-delivery"
       description: Get a delivery
@@ -209,7 +209,7 @@ paths:
       security:
         - api_key: [ 'shipping-manage' ]
 
-  /v1/deliveries/{0}/statuses:
+  /v1/deliveries/{id}/statuses:
     post:
       operationId: "change-delivery-status"
       description: Change delivery status
