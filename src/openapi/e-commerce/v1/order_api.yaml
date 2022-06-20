@@ -590,48 +590,10 @@ components:
     SetAddressRequest:
       type: object
       properties:
-        id:
+        addressId:
           type: integer
           format: int64
-          description: |
-            ID of the address:
-            - If not `null`, the address associated with this ID will be associated with the order
-            - If `null`, a new address will be created and associated with the order
-          nullable: true
-        firstName:
-          type: string
-          description: Customer First Name
-        lastName:
-          type: string
-          description: Customer Last Name
-        country:
-          type: string
-          description: Country code
-          nullable: true
-        street:
-          type: string
-          description: Street address
-          nullable: true
-        cityId:
-          type: integer
-          format: int64
-          description: ID of the city
-          nullable: true
-        zipCode:
-          type: string
-          description: ZIP code
-          nullable: true
-        email:
-          type: string
-          format: email
-          description: Email address
-          nullable: true
-        type:
-          type: string
-          enum:
-            - POSTAL
-            - EMAIL
-          description: Type of address
+          description: ID of the address
 
     SetShippingMethodRequest:
       type: object
