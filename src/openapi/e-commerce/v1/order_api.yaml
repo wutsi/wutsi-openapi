@@ -177,6 +177,13 @@ paths:
     get:
       operationId: "list-addresses"
       description: List the addresses of the current user
+      parameters:
+        - in: path
+          name: type
+          description: Type of address
+          required: false
+          schema:
+            type: string
       responses:
         200:
           description: Success
@@ -225,8 +232,16 @@ components:
           items:
             $ref: "#/components/schemas/CreateOrderItem"
           description: Items of order
+        addressType:
+          type: string
+          enum:
+            - POSTAL
+            - EMAIL
+          description: Type of address
+          default: POSTAL
       required:
         - items
+        - addressType
 
     CreateOrderResponse:
       type: object
@@ -293,6 +308,12 @@ components:
           format: email
           description: Email address
           nullable: true
+        type:
+          type: string
+          enum:
+            - POSTAL
+            - EMAIL
+          description: Type of address
 
     Order:
       type: object
@@ -374,6 +395,12 @@ components:
           type: object
           $ref: "#/components/schemas/Address"
           nullable: true
+        addressType:
+          type: string
+          enum:
+            - POSTAL
+            - EMAIL
+          description: Type of address
 
     GetOrderResponse:
       type: object
@@ -521,6 +548,14 @@ components:
           format: email
           description: Email address
           nullable: true
+        type:
+          type: string
+          enum:
+            - POSTAL
+            - EMAIL
+          description: Type of address
+      required:
+        - type
 
     SetShippingMethodRequest:
       type: object
