@@ -265,7 +265,6 @@ components:
             - POSTAL
             - EMAIL
           description: Type of address
-          default: POSTAL
       required:
         - items
         - addressType
