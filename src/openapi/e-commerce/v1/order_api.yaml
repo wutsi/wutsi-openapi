@@ -530,6 +530,7 @@ components:
         country:
           type: string
           description: Country code
+          nullable: true
         street:
           type: string
           description: Street address
@@ -555,6 +556,8 @@ components:
             - EMAIL
           description: Type of address
       required:
+        - firstName
+        - lastName
         - type
 
     SetShippingMethodRequest:
