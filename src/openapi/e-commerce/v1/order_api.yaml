@@ -178,7 +178,7 @@ paths:
       operationId: "list-addresses"
       description: List the addresses of the current user
       parameters:
-        - in: path
+        - in: query
           name: type
           description: Type of address
           required: false
