@@ -292,6 +292,7 @@ components:
         country:
           type: string
           description: Country
+          nullable: true
         street:
           type: string
           description: Street address
