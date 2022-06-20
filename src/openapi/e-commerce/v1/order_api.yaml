@@ -184,6 +184,8 @@ paths:
           required: false
           schema:
             type: string
+            required: false
+            nullable: true
       responses:
         200:
           description: Success
